@@ -1,73 +1,198 @@
 <!DOCTYPE html>
-<html>
+<!-- Declares the document type as HTML5, informing browsers to render the page using HTML5 standards. -->
+
+<html lang="en">
+<!-- The <html> tag is the root element of the HTML document. The 'lang' attribute specifies the language of the document as English ("en"). -->
 
 <head>
-    <!-- meta ,link ,script , style ,title -->
+    <!-- The <head> section contains metadata, links to external resources, and other non-visible information about the document. -->
+
+    <!-- meta, link, script, style, title -->
+    <!-- Comment indicating common elements that can be included in the <head> section, such as metadata, CSS links, JavaScript, styles, and the page title. -->
+
     <title>First HTML Site</title>
+    <!-- The <title> tag sets the title of the webpage, displayed in the browser's title bar or tab. Here, it’s set to "First HTML Site". -->
+
+    <style>
+        /*  The <style> tag defines internal CSS styles for the HTML document.  */
+        * {
+            scroll-behavior: smooth;
+        }
+
+        /* CSS rule applying to all elements (*) using the universal selector. The 'scroll-behavior: smooth' property makes scrolling smooth when navigating to anchors within the page. */
+    </style>
 </head>
 
 <body>
-    <!-- heading, paragraphs , list , table , form , link -->
-    <!-- audio, video , images , containers -->
+    <!-- The <body> tag contains the visible content of the webpage, such as text, images, links, and other elements. -->
+
+    <ul>
+        <!-- An unordered list (<ul>) creates a bulleted list. By default, items are displayed with bullets (can be customized with the 'type' attribute). -->
+        <li><a href="index.html">Home </a></li>
+        <!-- <li> defines a list item. The <a> tag creates a hyperlink to "index.html" (likely the homepage). The text "Home" is the clickable link text. -->
+        <li><a href="about.html">About</a></li>
+        <!-- Another list item with a hyperlink to "about.html" (the about page). The link text is "About". -->
+        <li><a href="#raghav_details">Raghav Details</a></li>
+        <!-- A hyperlink to an anchor (id="raghav_details") within the same page. Clicking this scrolls to the element with the ID "raghav_details". The smooth scrolling is enabled by the CSS rule above. -->
+    </ul>
+
+    <hr>
+    <!-- The <hr> tag creates a horizontal rule (line) to visually separate content sections. -->
+
+    <!-- heading, paragraphs, list, table, form, link -->
+    <!-- Comment listing common HTML elements that can be used in the <body> section. -->
+
+    <!-- audio, video, images, containers -->
+    <!-- Comment listing additional HTML elements for multimedia and structural content. -->
 
     <h1>Hello world</h1>
+    <!-- The <h1> tag defines the largest, most important heading (level 1). Displays "Hello world" in large, bold text. -->
     <h2>Hello world</h2>
+    <!-- <h2> is a level 2 heading, slightly smaller than <h1>. -->
     <h3>Hello world</h3>
+    <!-- <h3> is a level 3 heading, smaller than <h2>. -->
     <h4>Hello world</h4>
+    <!-- <h4> is a level 4 heading, smaller than <h3>. -->
     <h5>Hello world</h5>
+    <!-- <h5> is a level 5 heading, smaller than <h4>. -->
     <h6>Hello world</h6>
+    <!-- <h6> is the smallest heading (level 6). Headings are used for hierarchical structure and SEO purposes. -->
 
     <!-- paragraph -->
     <p>
         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis, nostrum?
     </p>
+    <!-- The <p> tag defines a paragraph. The text here is placeholder "Lorem ipsum" text, commonly used for design mockups. -->
 
-    <!-- lists : ordered , unordered and descriptive list -->
+    <!-- lists: ordered, unordered and descriptive list -->
+    <!-- Comment introducing types of HTML lists. -->
 
     <ol type="I">
+        <!-- An ordered list (<ol>) creates a numbered list. The 'type' attribute set to "I" specifies uppercase Roman numerals (I, II, III, etc.) for numbering. -->
         <li>Apple</li>
+        <!-- List item in the ordered list, displayed as "I. Apple". -->
         <li>Banana</li>
+        <!-- Second item, displayed as "II. Banana". -->
         <li>Cherry</li>
+        <!-- Third item, displayed as "III. Cherry". -->
     </ol>
 
     <ul type="square">
+        <!-- An unordered list (<ul>) with the 'type' attribute set to "square", which uses square bullets instead of default round bullets. Note: The 'type' attribute is deprecated in HTML5; CSS should be used for styling instead. -->
         <li>Apple</li>
+        <!-- List item with a square bullet. -->
         <li>Banana</li>
+        <!-- Second item with a square bullet. -->
         <li>Cherry</li>
+        <!-- Third item with a square bullet. -->
     </ul>
 
     <dl>
+        <!-- A description list (<dl>) is used to define terms and their descriptions. -->
         <dt>Apple</dt>
+        <!-- The <dt> tag defines a term in the description list. -->
         <dd>Apple is red in color</dd>
+        <!-- The <dd> tag provides the description for the preceding <dt>. -->
         <dt>Apple</dt>
+        <!-- Another term (repeated for demonstration). -->
         <dd>Apple is red in color</dd>
+        <!-- Description for the second term. -->
         <dt>Apple</dt>
+        <!-- Third term (repeated). -->
         <dd>Apple is red in color</dd>
+        <!-- Description for the third term. -->
     </dl>
 
-
     <table border="1">
+        <!-- A <table> tag creates a table. The 'border' attribute (set to "1") adds a visible border to the table. Note: In modern HTML, borders are styled using CSS instead of the 'border' attribute. -->
         <tr>
+            <!-- The <tr> tag defines a table row. -->
             <th colspan="3">Student Data</th>
+            <!-- The <th> tag defines a table header cell. The 'colspan' attribute makes this header span 3 columns. -->
         </tr>
         <tr>
             <th>Name</th>
+            <!-- Header cell for the "Name" column. -->
             <th>Age</th>
+            <!-- Header cell for the "Age" column. -->
             <th>Gender</th>
+            <!-- Header cell for the "Gender" column. -->
         </tr>
         <tr>
             <td>Rohan</td>
+            <!-- The <td> tag defines a table data cell, containing "Rohan" for the Name column. -->
             <td>23</td>
+            <!-- Data cell for the Age column. -->
             <td>Male</td>
+            <!-- Data cell for the Gender column. -->
         </tr>
         <tr>
             <td>Sunny</td>
+            <!-- Data cell for the Name column in the second row. -->
             <td>33</td>
+            <!-- Data cell for the Age column. -->
             <td>Male</td>
+            <!-- Data cell for the Gender column. -->
         </tr>
     </table>
 
+    <table border="1" id="raghav_details">
+        <!-- Another table with a border. The 'id' attribute ("raghav_details") uniquely identifies this table, allowing it to be targeted by the anchor link in the navigation. -->
+        <tr>
+            <th colspan="2">Raghav</th>
+            <!-- Header cell spanning 2 columns, displaying "Raghav". -->
+        </tr>
+        <tr>
+            <th>Name</th>
+            <!-- Header cell for the "Name" column. -->
+            <td>Raghav Bhardwaj</td>
+            <!-- Data cell with the full name. -->
+        </tr>
+        <tr>
+            <th>Age</th>
+            <!-- Header cell for the "Age" column. -->
+            <td>20</td>
+            <!-- Data cell with the age. -->
+        </tr>
+        <tr>
+            <th rowspan="2">Details</th>
+            <!-- Header cell spanning 2 rows (using 'rowspan') for the "Details" column. -->
+            <td>9873728322</td>
+            <!-- Data cell with a phone number. -->
+        </tr>
+        <tr>
+            <td>raghav@email.com</td>
+            <!-- Data cell with an email address, aligned under the same "Details" header due to rowspan. -->
+        </tr>
+    </table>
+
+    <!-- hyperlinks: anchor -->
+    <!-- Comment introducing hyperlinks created with the <a> tag. -->
+
+    <!-- EXTERNAL LINK -->
+    <a href="https://www.google.com" target="_blank">
+        google
+    </a>
+    <!-- An <a> tag creating a hyperlink to an external URL (Google). The 'target="_blank"' attribute opens the link in a new browser tab. The link text is "google". -->
+
+    <a href="tel:9871788878">
+        <p>Call Me</p>
+    </a>
+    <!-- A hyperlink using the "tel:" protocol to initiate a phone call to the specified number. The <p> tag inside makes "Call Me" the clickable text. -->
+
+    <a
+        href="mailto:rohn11shrma@gmail.com?subject=our second session&cc=hello@email.com&body=hello world this is an email">
+        <button>Email Me</button>
+    </a>
+    <!-- A hyperlink using the "mailto:" protocol to open the user's email client. The 'href' includes:
+         - The recipient's email address (rohn11shrma@gmail.com).
+         - A query string with 'subject' (email subject), 'cc' (carbon copy recipient), and 'body' (pre-filled email content).
+         The <button> tag inside makes "Email Me" the clickable button. -->
+
+    <hr>
+    <!-- Another horizontal rule to separate content sections. -->
 
 </body>
 
 </html>
+<!-- Closing tags for the <body> and <html> elements, marking the end of the document. -->
