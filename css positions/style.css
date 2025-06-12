@@ -1,0 +1,52 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+#header{
+    padding:1rem 2rem;
+    text-align: center;
+    color:white;
+    background-color: rgb(200, 200, 202);
+}
+
+
+#nav{
+    position: sticky;
+    top:0;
+    padding:1rem 2rem;
+    z-index: 2;
+    text-align: center;
+    background-color: rgb(27, 27, 32);
+    
+}
+#nav a{
+    color:white;
+}
+#parent{
+    height: 500px;
+    width: 500px;
+    background-color: grey;
+    position: relative;
+}
+
+.box{
+    position: absolute;
+    font-size: 3rem;
+    height: 100px;
+    width: 100px;
+}
+.b-1{
+    bottom:0;
+    right:0;
+    background-color: teal;
+}
+.b-2{
+    background-color: tomato;
+   }
+.b-3{
+    background-color: thistle;
+   }
+.b-4{   
+    background-color: salmon;
+   }

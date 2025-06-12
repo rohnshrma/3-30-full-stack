@@ -1,34 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Sacramento&display=swap');
+
 *{
     padding: 0;
     margin: 0;
 }
 
-
-h1,h2,h3,h4,h5,h6{
-    font-family: Arial, Helvetica, sans-serif;
+h1{
+    font-family: Sacramento;
+}
+h2,h3,h4,h5,h6{
+    font-weight: 500;
+    font-family: Montserrat ,Arial, Helvetica, sans-serif;
 }
 p{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-
-
+.l2{
+    font-size: 2rem;
+    font-weight: 600;
+    color:teal;
+    margin-bottom: 1rem;
+}
+.wrapper{
+    text-align: center;
+    padding: 4rem 8rem;
+}
 #header{
     /* 1rem = 16px */
-    padding:2rem;
+    padding:2rem 2rem 0;
     text-align: center;
-    color:white;
-    background:linear-gradient(rgba(0,0,0,0.3) , rgba(0,0,0,0.5)) , url(./images/header_bg.jpg);
+    color:teal;
+    position: relative;
+    background-color: #ededed;
+    /* background:linear-gradient(rgba(0,0,0,0.3) , rgba(0,0,0,0.5)) , url(./images/header_bg.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: top;
+    background-position: top; */
 }
+#header .cloud{
+    filter: drop-shadow( -4px 0 4px #000);
+}
+
 #header h1{
+    position: relative;
+    z-index: 2;
+    font-size: 5rem;
+    font-style: italic;
+    text-shadow: -2px 2px 0 black;
     margin-bottom: 1rem;
+
+}
+
+#header .c1{
+    position: relative;
+    left:350px;
+    width: 250px;
+}
+#header .c2{
+    width: 300px;
+    position: relative;
+    left:400px;
+    top:300px;
+}
+#header .c4{
+    position: absolute;
+    left:100px;
+    width: 400px;
+}
+#header .c3{
+    position: absolute;
+    bottom:200px;
+    left:200px;
+    z-index: 1;
+    width: 200px;
+}
+
+#header .mountain{
+    position: relative;
+    filter: drop-shadow(-4px 0 4px #000);
 }
 
 #about {
-    padding:2rem;
-    text-align: center;
     background:linear-gradient(#B8CFCE ,#F2F2F2 );
 }
 
@@ -53,53 +105,34 @@ p{
 }
 
 
-#footer{
+
+#contact{
     text-align: center;
+}
+#contact h3{
+    color: teal;
+    margin-bottom: 1rem;
+}
+
+#contact p{
+    margin-bottom: 1rem;
+}
+
+#contact a{
+    background-color: teal;
+    color:white;
+    font-size: 1rem;
+    font-family: Arial;
+    border-radius: 4px;
+    padding:10px 12px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+
+
+#footer{
     background-color: #333446;
     color:#fff;
-
-    /* inner space */
-    /* t-r-b-l */
-    padding:20px;
-
-    /* t-b , l-r */
-    /* padding:20px 40px; */
-
-    /* t , l-r , b */
-    /* padding:20px 40px 60px; */
-
-    /* t , r, b ,l */
-    /* padding:20px 40px 60px 30px; */
-
-    /* padding-top: 20px;
-    padding-right: 20px;
-    padding-bottom: 20px;
-    padding-left: 20px; */
-
-
-    /* margin : outer space (space b/w elements) */
-    /* t-r-b-l */
-    /* margin:20px; */
-
-    /* t-b , l-r */
-    /* margin:20px 40px; */
-
-    /* t , l-r , b */
-    /* margin:20px 40px 60px; */
-
-    /* t , r, b ,l */
-    /* margin:20px 40px 60px 30px; */
-
-    /* margin-top: 20px;
-    margin-right: 20px;
-    margin-bottom: 20px;
-    margin-left: 20px; */
-
-    /* border-width: 10px;
-    border-style: solid;
-    border-color: pink; */
-
-/* border: 10px double red; */
-/* border-top: 10px inset red; */
 
 }
