@@ -26,6 +26,8 @@ p{
     padding: 4rem 8rem;
 }
 #header{
+    max-height: 100vh;
+    overflow: hidden;
     /* 1rem = 16px */
     padding:2rem 2rem 0;
     text-align: center;
@@ -69,7 +71,7 @@ p{
 }
 #header .c3{
     position: absolute;
-    bottom:200px;
+    bottom:300px;
     left:200px;
     z-index: 1;
     width: 200px;
@@ -78,6 +80,23 @@ p{
 #header .mountain{
     position: relative;
     filter: drop-shadow(-4px 0 4px #000);
+}
+#header .m1{
+     position: relative;
+    width: 900px;
+    bottom:50px;
+    z-index: 2;
+}
+#header .m2{
+    left:70px;
+    position: absolute;
+    bottom:0;
+}
+#header .m3{
+    width:600px;
+    position: absolute;
+right:100px;
+    bottom:0;
 }
 
 #about {

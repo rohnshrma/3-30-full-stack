@@ -1,0 +1,16 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+
+table{
+    width: 100vw;;
+}
+table tr td{
+    width:50%;
+}
+
+table tr td img{
+    width:100%;
+}

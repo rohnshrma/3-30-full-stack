@@ -1,0 +1,30 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+/* after giving display:flex to the parent container , the childrens inside becomes inline(taking space as per content or defined) */
+#parent{
+    background-color: grey;
+    display: flex;
+    /* flex-direction: column; */
+    height: 600px;
+    
+    /* manage horizontal space (row)  | manage vertical space (column)*/
+    justify-content: space-evenly;
+
+    /* manage vertical space (row) | manage horizontal space (column) */
+    align-items: center;
+    
+
+
+}
+
+.child{
+    height: 100px;
+    width:30%;   
+}
+
+.c1{ background-color:teal ;}
+.c2{ background-color: wheat;}
+.c3{ background-color: tomato;}
