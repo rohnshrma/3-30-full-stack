@@ -125,6 +125,28 @@ right:100px;
 
 
 
+
+/* features */
+#features{
+    background-color: #EDEDED;
+}
+
+#features .row{
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+}
+#features .row .col{
+    background-color: #fff;
+    width: 25%;
+    padding:2rem;
+    border-radius: 5px;
+    box-shadow: 0 0 5px grey;
+}
+#features .row .col h2{
+    font-style: 1.8rem;
+}
+
 #contact{
     text-align: center;
 }
