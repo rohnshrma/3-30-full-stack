@@ -137,7 +137,7 @@ right:100px;
     justify-content: space-between;
 }
 #features .row .col{
-    background-color: #fff;
+    background-color: #fff; 
     width: 25%;
     padding:2rem;
     border-radius: 5px;

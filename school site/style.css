@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+}
+
+h1,h2,h3,h4,h5,h6{
+font-family: Montserrat , Arial;
+color:#3F3A64;
+margin-bottom: 1rem;
+}
+
+
+.level-2{
+    font-size: 3rem;
+    font-weight: 800;
+}
+.level-3{
+    font-size: 2rem;
+    font-weight: 500;
+    color:teal;
+}
+
+.wrapper{
+    text-align: center;
+    padding: 4rem 8rem;
+}
+
+#features {
+    background-color: #EAEFEF;
+}
+#features .row{
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#features .row .col{
+    padding:2rem 1rem;
+    transition: 0.3s;
+    width:22%;
+}
+#features .row .col i{
+    color:teal;
+    transform: scale(0.7);
+    transition: 0.3s;
+    font-size: 4rem;
+    margin-bottom: 1.2rem;
+}
+#features .row .col h4{
+    font-size: 1.8rem;
+}
+#features .row .col:hover{
+    box-shadow: 0 0 4px 0 grey;
+    border-radius: 10px;
+    background-color: #fff;
+}
+#features .row .col:hover i{
+    transform: rotate(-25deg);
+    transition: 0.3s;
+}
