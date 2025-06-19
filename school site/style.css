@@ -10,6 +10,15 @@ color:#3F3A64;
 margin-bottom: 1rem;
 }
 
+.mt-1{margin-top: 1rem;}
+.mb-1{margin-bottom: 1rem;}
+.ml-1{margin-left: 1rem;}
+.mr-1{margin-right: 1rem;}
+
+p{
+    font-family: sans-serif;
+    margin-bottom: 1rem;
+}
 
 .level-2{
     font-size: 3rem;
@@ -26,6 +35,53 @@ margin-bottom: 1rem;
     padding: 4rem 8rem;
 }
 
+
+.btn{
+    padding:12px 14px;
+    border-color: transparent;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-family: Montserrat;
+}
+
+.btn-white{
+    background-color: #fff;
+    color:#333;
+}
+.btn-info{
+    color:#fff;
+    background-color: teal;
+
+}
+
+
+#header{
+    color:#fff !important;
+    background:linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.5)) , url(https://static.boostmytalent.com/img/univ/lpu-online-mba-admission.webp) ;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center top;
+    background-attachment: fixed;
+    padding:0 8rem;
+    text-align: center;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#header h4, #header h1{
+    color:#fff;
+}
+
+
+#header h1{
+    font-size: 4rem;
+}
+
+#header h4{
+    font-size: 2rem;
+}
 #features {
     background-color: #EAEFEF;
 }
