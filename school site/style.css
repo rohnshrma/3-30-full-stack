@@ -115,3 +115,49 @@ p{
     transform: rotate(-25deg);
     transition: 0.3s;
 }
+
+
+
+#newsletter{
+    margin: 4rem;
+    border-radius: 10px;
+    box-shadow: 0 0 5px 0 grey;
+    background-color: #EAEFEF;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+#newsletter .content-area{
+    width: 50%;
+}
+#newsletter .level-2{
+    margin-bottom: 0;
+}
+#newsletter .form-area{
+    width: 45%;
+}
+#newsletter .form-area form{padding: 2px;
+    border: 1px solid teal;
+    border-radius: 6px;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+}
+#newsletter .form-area form input{
+    width:70%;
+    padding-left:1rem;
+    border: none;
+}
+#newsletter .form-area form input:focus{
+    outline:none;
+}
+
+#newsletter .form-area form button{
+    width:25%;
+}
+
+
+#map{
+height: 40vh;
+}
