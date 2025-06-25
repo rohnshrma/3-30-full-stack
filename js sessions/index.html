@@ -18,12 +18,12 @@
     <!-- Using 'DOMContentLoaded' ensures the script runs only after the DOM is fully loaded -->
     <!-- This approach is safe because it waits for all HTML elements to be parsed before executing -->
     <script>
-      <!-- Adds an event listener to wait for the DOM to be fully loaded -->
+      // Adds an event listener to wait for the DOM to be fully loaded
       document.addEventListener("DOMContentLoaded", () => {
-        <!-- Selects the element with id 'heading' and adds a click event listener -->
+        // Selects the element with id 'heading' and adds a click event listener
         document.querySelector("#heading").addEventListener(
           "click",
-          <!-- Changes the text content of the 'heading' element to 'bye bye world' when clicked -->
+          // Changes the text content of the 'heading' element to 'bye bye world' when clicked -->
           () =>
             (document.querySelector("#heading").textContent = "bye bye world")
         );
