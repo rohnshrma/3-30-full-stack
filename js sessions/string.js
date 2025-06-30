@@ -115,8 +115,46 @@ console.log(third); // Outputs: -1 - no more "l" found after index 3
 // TOPIC: lastIndexOf Method
 // lastIndexOf(substring, end) returns the index of the last occurrence of substring, searching backward from end index
 console.log(txt.lastIndexOf("l", 7)); // Outputs: 3 - last "l" before or at index 7
+// startsWith Method
+// startsWith(searchString, position) checks if a string starts with searchString from the specified position (default 0).
+// Returns true if the string starts with searchString, false otherwise. Case-sensitive.
+console.log("Hello World".startsWith("he")); // Outputs: false - "Hello World" does not start with "he" (case-sensitive).
+console.log("Hello World".startsWith(" W", 5)); // Outputs: true - At position 5, the string starts with " W".
 
-// ASSIGNMENT: Practice Tasks
+// endsWith Method
+// endsWith(searchString, endPosition) checks if a string ends with searchString up to endPosition (default is string length).
+// Returns true if the string ends with searchString, false otherwise. Case-sensitive.
+console.log("Hello World".endsWith("ld")); // Outputs: true - "Hello World" ends with "ld".
+console.log("Hello World".endsWith(" ", 6)); // Outputs: true - Up to position 6 ("Hello "), the string ends with a space.
+
+// split Method
+// split(separator) divides a string into an array of substrings based on separator.
+// If no separator, returns the entire string as a single-element array. Separator is removed from the result.
+console.log("Hello World".split()); // Outputs: ["Hello World"] - No separator, entire string as one element.
+console.log("Hello World".split("")); // Outputs: ['H', 'e', 'l', 'l', 'o', ' ', 'W', 'o', 'r', 'l', 'd'] - Splits into individual characters.
+console.log("Hello World".split(" ")); // Outputs: ["Hello", "World"] - Splits at space.
+console.log("Hello World".split("W")); // Outputs: ["Hello ", "orld"] - Splits at "W".
+
+// replace Method
+// replace(searchValue, newValue) replaces the first occurrence of searchValue with newValue.
+// Returns a new string; original string unchanged. Case-sensitive.
+console.log("Hello World".replace("l", "L")); // Outputs: "HeLlo World" - Replaces first "l" with "L".
+
+// replaceAll Method
+// replaceAll(searchValue, newValue) replaces all occurrences of searchValue with newValue.
+// Returns a new string; original string unchanged. Case-sensitive.
+console.log("Hello World".replaceAll("l", "L")); // Outputs: "HeLLo WorLd" - Replaces all "l" with "L".
+
+console.log(txt.search("ll"));
+
+console.log("hello hello hello hello".match("ll"));
+
+// console.log("hello hello hello hello".matchAll("ll"));
+
+// console.log(txt.replace(/l/g, "L")); // what to be replaced , new value
+
+// TOPIC: Practice Tasks (Tasks Only, No Solutions)
+
 // Task 1: Data Types and typeof
 // Create three variables with different data types (e.g., string, number, boolean). Use the 'typeof' operator to print their types to the console.
 
@@ -161,3 +199,76 @@ console.log(txt.lastIndexOf("l", 7)); // Outputs: 3 - last "l" before or at inde
 
 // Task 15: Creative Challenge
 // Use prompt() to collect a user's first name, last name, and favorite number. Create a template literal that includes their full name (concatenated), the number doubled, and a substring of their first name (first 3 characters). Convert the substring to uppercase and pad it to length 10 with "-". Print the result.
+
+// 3-06-2025
+
+// Task 1: Using startsWith
+// Create a string variable with the value "JavaScript is fun". Use startsWith() to check if the string starts with "Java" and "java". Print both results and explain why they differ (case sensitivity).
+
+// Task 2: Using startsWith with Position
+// Using the string "Hello World", check if the substring starting at index 6 begins with "Wor" and "wor". Print the results and note the effect of the position parameter.
+
+// Task 3: Using endsWith
+// Create a string variable with the value "I love coding". Use endsWith() to check if the string ends with "ing" and "code". Print both results.
+
+// Task 4: Using endsWith with endPosition
+// Using the string "Programming is awesome", check if the substring up to index 11 ends with "ming" and "gram". Print the results and explain how endPosition affects the outcome.
+
+// Task 5: Using split with Different Separators
+// Create a string variable with the value "apple,banana,orange". Use split() to create arrays by splitting on: (1) a comma (","), (2) an empty string (""), and (3) no separator. Print all three results.
+
+// Task 6: Using split with a Character
+// Using the string "banana", split the string on the letter "a" and print the resulting array. Count how many elements are in the array and explain why.
+
+// Task 7: Using replace
+// Create a string variable with the value "I like to code in Java". Use replace() to change the first occurrence of "Java" to "Python" and print the result. Then, try replacing "java" and print the result to observe case sensitivity.
+
+// Task 8: Using replaceAll
+// Using the string "cat cat cat", use replaceAll() to replace all occurrences of "cat" with "dog" and print the result. Then, try replacing "Cat" and print the result to observe case sensitivity.
+
+// Task 9: Combining startsWith and replace
+// Create a string variable with the value "Learning JavaScript". Check if it starts with "Learn" using startsWith(). If true, use replace() to change "JavaScript" to "Python" and print the new string.
+
+// Task 10: Combining endsWith and replaceAll
+// Using the string "coding is coding", check if it ends with "coding" using endsWith(). If true, use replaceAll() to replace all "coding" with "programming" and print the result.
+
+// Task 11: Using split and Length
+// Create a string variable with the value "red-green-blue". Split the string on the hyphen ("-") and print the resulting array. Then, print the length of the array to confirm the number of elements.
+
+// Task 12: Creative Challenge with Multiple Methods
+// Create a string variable with the value "Hello, World! Hello, World!". Use startsWith() to check if it starts with "Hello". Use endsWith() to check if it ends with "World!". Use split() to split on commas (","). Use replaceAll() to replace all "Hello" with "Hi". Print the results of each operation.
+
+// Task 13: Case Sensitivity Exploration
+// Create a string variable with the value "JavaScript JavaSCRIPT javascript". Use startsWith() to check for "Java" and "java". Use replace() to replace the first "Java" with "JS". Use replaceAll() to replace all "script" with "code". Print all results and explain the impact of case sensitivity.
+
+// Task 14: Substring Check and Split
+// Using the string "one|two|three|four", check if it starts with "one" using startsWith() and ends with "four" using endsWith(). Then, split the string on the pipe symbol ("|") and print the resulting array.
+
+// Task 15: Real-World Application
+// Use prompt() to collect a sentence from the user (e.g., "I love to code and code"). Check if the sentence starts with "I" using startsWith() and ends with "code" using endsWith(). Split the sentence on spaces to create an array of words. Use replaceAll() to replace all occurrences of "code" with "program". Print the results of each operation.
+
+// startsWith Method
+// startsWith(searchString, position) checks if a string begins with the specified searchString starting from the given position (default is 0).
+// Returns true if the string starts with searchString, false otherwise. Case-sensitive.
+// position allows checking from a specific index, useful for substrings.
+
+// endsWith Method
+// endsWith(searchString, endPosition) checks if a string ends with the specified searchString up to the endPosition (default is string length).
+// Returns true if the string ends with searchString, false otherwise. Case-sensitive.
+// endPosition allows checking a substring up to a specific index.
+
+// split Method
+// split(separator) divides a string into an array of substrings based on the specified separator.
+// If separator is omitted, the entire string is returned as a single-element array.
+// If separator is an empty string (""), splits into individual characters.
+// The separator is removed from the resulting array.
+
+// replace Method
+// replace(searchValue, newValue) replaces the first occurrence of searchValue with newValue and returns a new string.
+// Original string remains unchanged. Case-sensitive.
+// searchValue can be a string or a simple regex (not covered here as per request).
+
+// replaceAll Method
+// replaceAll(searchValue, newValue) replaces all occurrences of searchValue with newValue and returns a new string.
+// Original string remains unchanged. Case-sensitive.
+// Requires
