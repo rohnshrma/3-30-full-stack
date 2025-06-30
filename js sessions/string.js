@@ -153,8 +153,6 @@ console.log("hello hello hello hello".match("ll"));
 
 // console.log(txt.replace(/l/g, "L")); // what to be replaced , new value
 
-// TOPIC: Practice Tasks (Tasks Only, No Solutions)
-
 // Task 1: Data Types and typeof
 // Create three variables with different data types (e.g., string, number, boolean). Use the 'typeof' operator to print their types to the console.
 
