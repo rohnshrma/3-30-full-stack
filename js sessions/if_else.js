@@ -176,3 +176,19 @@ if (degree === "yes") {
 //   For "veg": Display "Paneer Curry" if spicy, "Veg Biryani" if not.
 //   For "non-veg": Display "Chicken Curry" if spicy, "Chicken Biryani" if not.
 //   Display "Invalid order type" for other order types.
+
+var marks = parseInt(prompt("Enter your marks : "));
+
+if (marks >= 90 && marks <= 100) {
+  console.log("A");
+} else if (marks >= 80 && marks <= 89) {
+  console.log("B");
+} else if (marks >= 70 && marks <= 79) {
+  console.log("C");
+} else if (marks >= 60 && marks <= 69) {
+  console.log("D");
+} else if (marks < 60 && marks >= 0) {
+  console.log("Fail");
+} else {
+  console.log("Invalid marks");
+}
