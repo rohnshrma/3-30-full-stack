@@ -49,3 +49,47 @@ for (var i = 100; i >= 1; i -= 1) {
     console.log(i); // Output the current value of i to the console if it is even (e.g., 100, 98, 96, ..., 2)
   }
 }
+
+// =========================
+
+// // String Indexing Concept:
+// Strings in JavaScript are zero-indexed, meaning the first character is at index 0.
+// The last character is at index string.length - 1 because:
+// - string.length gives the total number of characters.
+// - Since indexing starts at 0, the last character's index is one less than the length.
+// Example: For the string "hello" (length 5), indices are:
+// - 'h' at index 0
+// - 'e' at index 1
+// - 'l' at index 2
+// - 'l' at index 3
+// - 'o' at index 4 (length 5 - 1 = 4)
+
+// For Loop Concept (Repeated from Context):
+// A for loop is used for fixed iterations with three components:
+// 1. Initialization: Sets the starting value of the counter (e.g., i = 0).
+// 2. Condition: Checks if the loop should continue (e.g., i < string.length).
+// 3. Update: Modifies the counter after each iteration (e.g., i += 1).
+
+// Context for the Code:
+// The variable 'text' holds the string "hello world this is john doe".
+// The loop iterates over the string to print each character, leveraging zero-based indexing.
+
+// Code with Indexing Explanation
+var text = "hello world this is john doe"; // Declare a variable 'text' with a string of 27 characters (including spaces)
+// For this string, length is 27:
+// - First character 'h' is at index 0.
+// - Last character 'e' is at index 26 (27 - 1).
+
+// Commented-Out Code: Manual Character Access
+// console.log(text[0]) // Would print 'h' (first character at index 0)
+// console.log(text[1]) // Would print 'e' (second character at index 1)
+// console.log(text[2]) // Would print 'l' (third character at index 2)
+// console.log(text[3]) // Would print 'l' (fourth character at index 3)
+// console.log(text[4]) // Would print 'o' (fifth character at index 4)
+
+// For Loop: Iterating Over the String
+for (var i = 0; i < text.length; i += 1) {
+  // Initialize i to 0 (first index); continue while i is less than 27 (text.length); increment i by 1 each iteration
+  console.log(text[i]); // Output the character at index i (e.g., i=0 prints 'h', i=1 prints 'e', ..., i=26 prints 'e' (last character))
+}
+// Why i < text.length? This ensures the loop stops before i equals 27, as index 27 is out of bounds (last valid index is 26).
