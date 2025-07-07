@@ -93,3 +93,37 @@ for (var i = 0; i < text.length; i += 1) {
   console.log(text[i]); // Output the character at index i (e.g., i=0 prints 'h', i=1 prints 'e', ..., i=26 prints 'e' (last character))
 }
 // Why i < text.length? This ensures the loop stops before i equals 27, as index 27 is out of bounds (last valid index is 26).
+
+//========== tasks
+
+// String Indexing Concept (Repeated for Context):
+// Strings in JavaScript are zero-indexed: the first character is at index 0.
+// The last character is at index string.length - 1, where string.length is the total number of characters.
+// Example: For "hello" (length 5), 'h' is at index 0, 'o' is at index 4 (5 - 1).
+
+// For Loop Concept (Repeated for Context):
+// A for loop is used for fixed iterations with three components:
+// 1. Initialization: Sets the counter (e.g., i = 0).
+// 2. Condition: Checks if the loop should continue (e.g., i < string.length).
+// 3. Update: Modifies the counter (e.g., i += 1).
+
+// Context for Tasks:
+// Assume a variable 'text' with the string "hello world this is john doe" (length 27).
+// - First character 'h' is at index 0.
+// - Last character 'e' is at index 26 (27 - 1).
+// Each task uses a for loop to iterate over the string, leveraging zero-based indexing.
+
+// Task 1: Print Only Vowels in the String
+// Goal: Use a for loop to iterate over the string and print only the vowel characters (a, e, i, o, u, case-sensitive).
+
+// Task 2: Count Spaces in the String
+// Goal: Use a for loop to count the number of space characters in the string and print the total.
+
+// Task 3: Print Characters at Even Indices
+// Goal: Use a for loop to print characters at even-numbered indices (e.g., 0, 2, 4, ..., 26).
+
+// Task 4: Reverse the String
+// Goal: Use a for loop to iterate over the string from the last index (string.length - 1) to 0 and print each character to form the reversed string.
+
+// Task 5: Print Every Second Character
+// Goal: Use a for loop to print every second character of the string, starting from index 0 (e.g., indices 0, 2, 4, ...).
