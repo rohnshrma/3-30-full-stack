@@ -116,14 +116,104 @@ for (var i = 0; i < text.length; i += 1) {
 // Task 1: Print Only Vowels in the String
 // Goal: Use a for loop to iterate over the string and print only the vowel characters (a, e, i, o, u, case-sensitive).
 
+var text = "hello world this is john doe".toLowerCase();
+console.log("Task 1");
+
+for (var i = 0; i < text.length; i += 1) {
+  if (
+    text[i] === "a" ||
+    text[i] === "e" ||
+    text[i] === "i" ||
+    text[i] === "o" ||
+    text[i] === "u"
+  ) {
+    console.log(text[i]);
+  }
+}
+
+for (var i = 0; i < text.length; i += 1) {
+  if ("aeiou".includes(text[i])) {
+    console.log(text[i]);
+  }
+}
+
 // Task 2: Count Spaces in the String
 // Goal: Use a for loop to count the number of space characters in the string and print the total.
+
+console.log("Task 2");
+var spaces = 0;
+
+for (var i = 0; i < text.length; i += 1) {
+  if (text[i] === " ") {
+    spaces += 1;
+  }
+}
+
+console.log(spaces);
 
 // Task 3: Print Characters at Even Indices
 // Goal: Use a for loop to print characters at even-numbered indices (e.g., 0, 2, 4, ..., 26).
 
+console.log("Task 3");
+for (var i = 0; i < text.length; i += 1) {
+  if (i % 2 === 0) {
+    console.log(text[i]);
+  }
+}
+
 // Task 4: Reverse the String
 // Goal: Use a for loop to iterate over the string from the last index (string.length - 1) to 0 and print each character to form the reversed string.
 
+console.log("Task 4");
+
+var rev = "";
+
+for (var i = text.length - 1; i >= 0; i -= 1) {
+  rev += text[i];
+}
+
+console.log(rev);
+
 // Task 5: Print Every Second Character
 // Goal: Use a for loop to print every second character of the string, starting from index 0 (e.g., indices 0, 2, 4, ...).
+
+console.log("Task 5");
+for (var i = 0; i < text.length; i += 1) {
+  if (i % 2 === 0) {
+    console.log(text[i]);
+  }
+}
+
+// =============== while loop fixed iteration
+
+var i = 1; // initialization
+while (i <= 10) {
+  // condition
+  console.log(i); // code to be executed
+  i += 1; // increment
+}
+
+// Third Code Block: Counting Down from 100 to 1
+for (var i = 100; i >= 1; i -= 1) {
+  // Initialize i to 100; loop while i is >= 1; decrement i by 1 each iteration
+  console.log(i); // Output the current value of i to the console (e.g., 100, 99, 98, ..., 1)
+}
+
+var i = 100;
+while (i >= 1) {
+  console.log("i =>", i);
+  i -= 1;
+}
+
+var spaces = 0;
+var i = 0;
+while (i < text.length) {
+  // increase the value space if the current character is empty space
+  if (text[i] === " ") {
+    spaces += 1;
+  }
+
+  i += 1;
+}
+
+console.log("total space : " + spaces);
