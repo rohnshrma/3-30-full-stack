@@ -112,14 +112,17 @@ for (var i = 0; i < text.length; i += 1) {
 // - First character 'h' is at index 0.
 // - Last character 'e' is at index 26 (27 - 1).
 // Each task uses a for loop to iterate over the string, leveraging zero-based indexing.
-
 // Task 1: Print Only Vowels in the String
 // Goal: Use a for loop to iterate over the string and print only the vowel characters (a, e, i, o, u, case-sensitive).
 
+// Declare a variable 'text' and assign it the string "hello world this is john doe" converted to lowercase to ensure case consistency
 var text = "hello world this is john doe".toLowerCase();
+// Output "Task 1" to the console to indicate the start of Task 1
 console.log("Task 1");
 
+// Start a for loop; initialize index 'i' to 0; continue while 'i' is less than the length of 'text'; increment 'i' by 1 each iteration
 for (var i = 0; i < text.length; i += 1) {
+  // Check if the character at index 'i' in 'text' is a vowel (a, e, i, o, or u) using multiple OR conditions
   if (
     text[i] === "a" ||
     text[i] === "e" ||
@@ -127,12 +130,17 @@ for (var i = 0; i < text.length; i += 1) {
     text[i] === "o" ||
     text[i] === "u"
   ) {
+    // If the character is a vowel, output it to the console
     console.log(text[i]);
   }
 }
 
+// Alternative approach for Task 1 using includes() method
+// Start a for loop; initialize index 'i' to 0; continue while 'i' is less than the length of 'text'; increment 'i' by 1
 for (var i = 0; i < text.length; i += 1) {
+  // Check if the character at index 'i' in 'text' is included in the string "aeiou"
   if ("aeiou".includes(text[i])) {
+    // If the character is a vowel, output it to the console
     console.log(text[i]);
   }
 }
@@ -140,23 +148,33 @@ for (var i = 0; i < text.length; i += 1) {
 // Task 2: Count Spaces in the String
 // Goal: Use a for loop to count the number of space characters in the string and print the total.
 
+// Output "Task 2" to the console to indicate the start of Task 2
 console.log("Task 2");
+// Declare a variable 'spaces' and initialize it to 0 to keep track of the number of spaces
 var spaces = 0;
 
+// Start a for loop; initialize index 'i' to 0; continue while 'i' is less than the length of 'text'; increment 'i' by 1
 for (var i = 0; i < text.length; i += 1) {
+  // Check if the character at index 'i' in 'text' is a space
   if (text[i] === " ") {
+    // If the character is a space, increment 'spaces' by 1
     spaces += 1;
   }
 }
 
+// Output the total number of spaces to the console
 console.log(spaces);
 
 // Task 3: Print Characters at Even Indices
 // Goal: Use a for loop to print characters at even-numbered indices (e.g., 0, 2, 4, ..., 26).
 
+// Output "Task 3" to the console to indicate the start of Task 3
 console.log("Task 3");
+// Start a for loop; initialize index 'i' to 0; continue while 'i' is less than the length of 'text'; increment 'i' by 1
 for (var i = 0; i < text.length; i += 1) {
+  // Check if the index 'i' is even by using the modulo operator (i % 2 === 0)
   if (i % 2 === 0) {
+    // If the index is even, output the character at index 'i' to the console
     console.log(text[i]);
   }
 }
@@ -164,56 +182,213 @@ for (var i = 0; i < text.length; i += 1) {
 // Task 4: Reverse the String
 // Goal: Use a for loop to iterate over the string from the last index (string.length - 1) to 0 and print each character to form the reversed string.
 
+// Output "Task 4" to the console to indicate the start of Task 4
 console.log("Task 4");
 
+// Declare a variable 'rev' and initialize it to an empty string to store the reversed string
 var rev = "";
 
+// Start a for loop; initialize index 'i' to the last index of 'text' (length - 1); continue while 'i' is greater than or equal to 0; decrement 'i' by 1
 for (var i = text.length - 1; i >= 0; i -= 1) {
+  // Append the character at index 'i' in 'text' to the 'rev' string
   rev += text[i];
 }
 
+// Output the reversed string to the console
 console.log(rev);
 
 // Task 5: Print Every Second Character
 // Goal: Use a for loop to print every second character of the string, starting from index 0 (e.g., indices 0, 2, 4, ...).
 
+// Output "Task 5" to the console to indicate the start of Task 5
 console.log("Task 5");
+// Start a for loop; initialize index 'i' to 0; continue while 'i' is less than the length of 'text'; increment 'i' by 1
 for (var i = 0; i < text.length; i += 1) {
+  // Check if the index 'i' is even by using the modulo operator (i % 2 === 0)
   if (i % 2 === 0) {
+    // If the index is even, output the character at index 'i' to the console
     console.log(text[i]);
   }
 }
 
 // =============== while loop fixed iteration
 
-var i = 1; // initialization
+// Initialize variable 'i' to 1 for the while loop
+var i = 1;
+// Start a while loop; continue while 'i' is less than or equal to 10
 while (i <= 10) {
-  // condition
-  console.log(i); // code to be executed
-  i += 1; // increment
-}
-
-// Third Code Block: Counting Down from 100 to 1
-for (var i = 100; i >= 1; i -= 1) {
-  // Initialize i to 100; loop while i is >= 1; decrement i by 1 each iteration
-  console.log(i); // Output the current value of i to the console (e.g., 100, 99, 98, ..., 1)
-}
-
-var i = 100;
-while (i >= 1) {
-  console.log("i =>", i);
-  i -= 1;
-}
-
-var spaces = 0;
-var i = 0;
-while (i < text.length) {
-  // increase the value space if the current character is empty space
-  if (text[i] === " ") {
-    spaces += 1;
-  }
-
+  // Output the current value of 'i' to the console
+  console.log(i);
+  // Increment 'i' by 1 to avoid an infinite loop
   i += 1;
 }
 
+// Third Code Block: Counting Down from 100 to 1
+// Start a for loop; initialize 'i' to 100; continue while 'i' is greater than or equal to 1; decrement 'i' by 1
+for (var i = 100; i >= 1; i -= 1) {
+  // Output the current value of 'i' to the console (e.g., 100, 99, 98, ..., 1)
+  console.log(i);
+}
+
+// Initialize variable 'i' to 100 for the while loop
+var i = 100;
+// Start a while loop; continue while 'i' is greater than or equal to 1
+while (i >= 1) {
+  // Output the current value of 'i' to the console with a label "i =>"
+  console.log("i =>", i);
+  // Decrement 'i' by 1 to avoid an infinite loop
+  i -= 1;
+}
+
+// Initialize variable 'spaces' to 0 to count spaces in the string
+var spaces = 0;
+// Initialize variable 'i' to 0 for the while loop
+var i = 0;
+// Start a while loop; continue while 'i' is less than the length of 'text'
+while (i < text.length) {
+  // Check if the character at index 'i' in 'text' is a space
+  if (text[i] === " ") {
+    // If the character is a space, increment 'spaces' by 1
+    spaces += 1;
+  }
+  // Increment 'i' by 1 to move to the next character
+  i += 1;
+}
+
+// Output the total number of spaces to the console with a label "total space : "
 console.log("total space : " + spaces);
+
+// Task 1: Sum of Even Numbers from 1 to 50
+// // Goal: Calculate and print the sum of all even numbers from 1 to 50 (inclusive).
+// // Using for Loop:
+// // Initialize a variable to store the sum.
+// // Loop from 1 to 50.
+// // Check if the current number is even (divisible by 2).
+// // Add even numbers to the sum.
+// // Print the final sum.
+// // Using while Loop:
+// // Initialize a variable to store the sum and a counter starting at 1.
+// // Continue looping while the counter is less than or equal to 50.
+// // Check if the counter is even, and if so, add it to the sum.
+// // Increment the counter.
+// // Print the final sum.
+
+// Task 2: Print Multiples of 3 from 3 to 30
+// // Goal: Print all multiples of 3 between 3 and 30 (inclusive).
+// // Using for Loop:
+// // Loop from 3 to 30.
+// // Check if the current number is divisible by 3 (optional, as the loop can increment by 3 directly).
+// // Print the number.
+// // Using while Loop:
+// // Initialize a counter to 3.
+// // Continue looping while the counter is less than or equal to 30.
+// // Print the counter.
+// // Increment the counter by 3.
+
+// Task 3: Count Numbers Divisible by 5 from 1 to 100
+// // Goal: Count how many numbers from 1 to 100 (inclusive) are divisible by 5 and print the count.
+// // Using for Loop:
+// // Initialize a counter variable to 0.
+// // Loop from 1 to 100.
+// // Check if the current number is divisible by 5.
+// // Increment the counter if it is.
+// // Print the final count.
+// // Using while Loop:
+// // Initialize a counter variable to 0 and a number variable to 1.
+// // Continue looping while the number is less than or equal to 100.
+// // Check if the number is divisible by 5, and if so, increment the counter.
+// // Increment the number.
+// // Print the final count.
+
+// Task 4: Print Squares of Numbers from 1 to 10
+// // Goal: Print the square of each number from 1 to 10 (e.g., 1, 4, 9, ..., 100).
+// // Using for Loop:
+// // Loop from 1 to 10.
+// // Calculate the square of the current number.
+// // Print the square.
+// // Using while Loop:
+// // Initialize a counter to 1.
+// // Continue looping while the counter is less than or equal to 10.
+// // Calculate and print the square of the counter.
+// // Increment the counter.
+
+// Task 5: Find First Number Divisible by Both 6 and 8 Greater Than 50
+// // Goal: Find and print the first number greater than 50 that is divisible by both 6 and 8.
+// // Using for Loop:
+// // Loop starting from 51 to a reasonable upper limit (e.g., 1000).
+// // Check if the current number is divisible by both 6 and 8 (can use modulo or LCM logic).
+// // Print the first number that satisfies the condition and exit the loop.
+// // Using while Loop:
+// // Initialize a number to 51.
+// // Continue looping while the number is less than a reasonable limit (e.g., 1000).
+// // Check if the number is divisible by both 6 and 8.
+// // If it is, print the number and exit the loop; otherwise, increment the number.
+
+// Task 6: Calculate Product of Odd Numbers from 1 to 20
+// // Goal: Calculate and print the product of all odd numbers from 1 to 20 (inclusive).
+// // Using for Loop:
+// // Initialize a variable to store the product, set to 1.
+// // Loop from 1 to 20.
+// // Check if the current number is odd (not divisible by 2).
+// // Multiply the product by the current number if it’s odd.
+// // Print the final product.
+// // Using while Loop:
+// // Initialize a variable to store the product, set to 1, and a counter starting at 1.
+// // Continue looping while the counter is less than or equal to 20.
+// // Check if the counter is odd, and if so, multiply the product by the counter.
+// // Increment the counter.
+// // Print the final product.
+
+// Task 7: Print Numbers from 50 to 25 Divisible by 5
+// // Goal: Print all numbers from 50 down to 25 (inclusive) that are divisible by 5.
+// // Using for Loop:
+// // Loop from 50 down to 25.
+// // Check if the current number is divisible by 5.
+// // Print the number if it is divisible by 5.
+// // Using while Loop:
+// // Initialize a counter to 50.
+// // Continue looping while the counter is greater than or equal to 25.
+// // Check if the counter is divisible by 5, and if so, print it.
+// // Decrement the counter.
+
+// Task 8: Sum of Numbers from 1 to 100 Divisible by 3 or 7
+// // Goal: Calculate and print the sum of all numbers from 1 to 100 (inclusive) that are divisible by 3 or 7.
+// // Using for Loop:
+// // Initialize a variable to store the sum, set to 0.
+// // Loop from 1 to 100.
+// // Check if the current number is divisible by 3 or 7 (using modulo and OR condition).
+// // Add the number to the sum if it meets the condition.
+// // Print the final sum.
+// // Using while Loop:
+// // Initialize a variable to store the sum, set to 0, and a counter starting at 1.
+// // Continue looping while the counter is less than or equal to 100.
+// // Check if the counter is divisible by 3 or 7, and if so, add it to the sum.
+// // Increment the counter.
+// // Print the final sum.
+
+// Task 9: Count Numbers from 1 to 50 Divisible by 4 but Not by 6
+// // Goal: Count how many numbers from 1 to 50 (inclusive) are divisible by 4 but not by 6, and print the count.
+// // Using for Loop:
+// // Initialize a counter variable to 0.
+// // Loop from 1 to 50.
+// // Check if the current number is divisible by 4 and not divisible by 6.
+// // Increment the counter if the condition is met.
+// // Print the final count.
+// // Using while Loop:
+// // Initialize a counter variable to 0 and a number variable to 1.
+// // Continue looping while the number is less than or equal to 50.
+// // Check if the number is divisible by 4 and not divisible by 6, and if so, increment the counter.
+// // Increment the number.
+// // Print the final count.
+
+// Task 10: Print First 10 Multiples of 9 Starting from 9
+// // Goal: Print the first 10 multiples of 9 starting from 9 (i.e., 9, 18, 27, ..., 90).
+// // Using for Loop:
+// // Initialize a counter to track the number of multiples printed, starting at 1.
+// // Loop from 1 to 10 (or use a number-based loop to generate multiples).
+// // Calculate the multiple (9 * counter) and print it.
+// // Using while Loop:
+// // Initialize a counter to 1.
+// // Continue looping while the counter is less than or equal to 10.
+// // Calculate the multiple (9 * counter) and print it.
+// // Increment the counter.
