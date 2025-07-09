@@ -1,262 +1,262 @@
-// Loop Concepts:
-// Loops are used to repeatedly execute a block of code based on a condition or for a specific number of iterations.
-// 1. for loop: Used for fixed iterations where the number of iterations is known or can be determined.
-// 2. while loop: Used for both fixed and non-fixed iterations; continues as long as a condition is true.
-// 3. do while loop: Similar to while, but guarantees at least one execution; used for both fixed and non-fixed iterations.
+// // Loop Concepts:
+// // Loops are used to repeatedly execute a block of code based on a condition or for a specific number of iterations.
+// // 1. for loop: Used for fixed iterations where the number of iterations is known or can be determined.
+// // 2. while loop: Used for both fixed and non-fixed iterations; continues as long as a condition is true.
+// // 3. do while loop: Similar to while, but guarantees at least one execution; used for both fixed and non-fixed iterations.
 
-// Iteration and Iterables:
-// Iteration is the process of looping over a sequence of elements.
-// Iterables are objects that can be looped over, such as:
-// - String: A sequence of characters (e.g., "hello").
-// - Array: A collection of elements (e.g., [1, 2, 3]).
+// // Iteration and Iterables:
+// // Iteration is the process of looping over a sequence of elements.
+// // Iterables are objects that can be looped over, such as:
+// // - String: A sequence of characters (e.g., "hello").
+// // - Array: A collection of elements (e.g., [1, 2, 3]).
 
-// For Loop Structure (Fixed Iteration):
-// A for loop consists of three parts:
-// 1. Initialization: Sets the starting point (e.g., a counter variable).
-// 2. Condition: A test that must be true for the loop to continue.
-// 3. Update: Modifies the counter variable after each iteration.
+// // For Loop Structure (Fixed Iteration):
+// // A for loop consists of three parts:
+// // 1. Initialization: Sets the starting point (e.g., a counter variable).
+// // 2. Condition: A test that must be true for the loop to continue.
+// // 3. Update: Modifies the counter variable after each iteration.
 
-// Example Context for Water Level:
-// Simulating a water level increasing from 0 ml to 1000 ml in steps of 100 ml.
-// 1. Initialization: Start at 0 ml.
-// 2. Condition: Continue until water_level reaches 1000 ml.
-// 3. Update: Increase water_level by 100 ml each iteration.
+// // Example Context for Water Level:
+// // Simulating a water level increasing from 0 ml to 1000 ml in steps of 100 ml.
+// // 1. Initialization: Start at 0 ml.
+// // 2. Condition: Continue until water_level reaches 1000 ml.
+// // 3. Update: Increase water_level by 100 ml each iteration.
 
-// First Code Block: Water Level Loop
-for (var water_level = 0; water_level <= 1000; water_level += 100) {
-  // Initialize water_level to 0; loop while water_level is <= 1000; increment water_level by 100 each iteration
-  console.log(water_level); // Output the current value of water_level to the console (e.g., 0, 100, 200, ..., 1000)
-}
+// // First Code Block: Water Level Loop
+// for (var water_level = 0; water_level <= 1000; water_level += 100) {
+//   // Initialize water_level to 0; loop while water_level is <= 1000; increment water_level by 100 each iteration
+//   console.log(water_level); // Output the current value of water_level to the console (e.g., 0, 100, 200, ..., 1000)
+// }
 
-// Second Code Block: Counting Up from 1 to 10
-for (var i = 1; i <= 10; i += 1) {
-  // Initialize i to 1; loop while i is <= 10; increment i by 1 each iteration
-  console.log(i); // Output the current value of i to the console (e.g., 1, 2, 3, ..., 10)
-}
+// // Second Code Block: Counting Up from 1 to 10
+// for (var i = 1; i <= 10; i += 1) {
+//   // Initialize i to 1; loop while i is <= 10; increment i by 1 each iteration
+//   console.log(i); // Output the current value of i to the console (e.g., 1, 2, 3, ..., 10)
+// }
 
-// Third Code Block: Counting Down from 100 to 1
-for (var i = 100; i >= 1; i -= 1) {
-  // Initialize i to 100; loop while i is >= 1; decrement i by 1 each iteration
-  console.log(i); // Output the current value of i to the console (e.g., 100, 99, 98, ..., 1)
-}
+// // Third Code Block: Counting Down from 100 to 1
+// for (var i = 100; i >= 1; i -= 1) {
+//   // Initialize i to 100; loop while i is >= 1; decrement i by 1 each iteration
+//   console.log(i); // Output the current value of i to the console (e.g., 100, 99, 98, ..., 1)
+// }
 
-// Fourth Code Block: Finding Even Numbers from 100 to 1
-// Goal: Identify and print all even numbers in the range 100 to 1.
-for (var i = 100; i >= 1; i -= 1) {
-  // Initialize i to 100; loop while i is >= 1; decrement i by 1 each iteration
-  if (i % 2 === 0) {
-    // Check if i is even by testing if i divided by 2 has no remainder
-    console.log(i); // Output the current value of i to the console if it is even (e.g., 100, 98, 96, ..., 2)
-  }
-}
+// // Fourth Code Block: Finding Even Numbers from 100 to 1
+// // Goal: Identify and print all even numbers in the range 100 to 1.
+// for (var i = 100; i >= 1; i -= 1) {
+//   // Initialize i to 100; loop while i is >= 1; decrement i by 1 each iteration
+//   if (i % 2 === 0) {
+//     // Check if i is even by testing if i divided by 2 has no remainder
+//     console.log(i); // Output the current value of i to the console if it is even (e.g., 100, 98, 96, ..., 2)
+//   }
+// }
 
-// =========================
+// // =========================
 
-// // String Indexing Concept:
-// Strings in JavaScript are zero-indexed, meaning the first character is at index 0.
-// The last character is at index string.length - 1 because:
-// - string.length gives the total number of characters.
-// - Since indexing starts at 0, the last character's index is one less than the length.
-// Example: For the string "hello" (length 5), indices are:
-// - 'h' at index 0
-// - 'e' at index 1
-// - 'l' at index 2
-// - 'l' at index 3
-// - 'o' at index 4 (length 5 - 1 = 4)
+// // // String Indexing Concept:
+// // Strings in JavaScript are zero-indexed, meaning the first character is at index 0.
+// // The last character is at index string.length - 1 because:
+// // - string.length gives the total number of characters.
+// // - Since indexing starts at 0, the last character's index is one less than the length.
+// // Example: For the string "hello" (length 5), indices are:
+// // - 'h' at index 0
+// // - 'e' at index 1
+// // - 'l' at index 2
+// // - 'l' at index 3
+// // - 'o' at index 4 (length 5 - 1 = 4)
 
-// For Loop Concept (Repeated from Context):
-// A for loop is used for fixed iterations with three components:
-// 1. Initialization: Sets the starting value of the counter (e.g., i = 0).
-// 2. Condition: Checks if the loop should continue (e.g., i < string.length).
-// 3. Update: Modifies the counter after each iteration (e.g., i += 1).
+// // For Loop Concept (Repeated from Context):
+// // A for loop is used for fixed iterations with three components:
+// // 1. Initialization: Sets the starting value of the counter (e.g., i = 0).
+// // 2. Condition: Checks if the loop should continue (e.g., i < string.length).
+// // 3. Update: Modifies the counter after each iteration (e.g., i += 1).
 
-// Context for the Code:
-// The variable 'text' holds the string "hello world this is john doe".
-// The loop iterates over the string to print each character, leveraging zero-based indexing.
+// // Context for the Code:
+// // The variable 'text' holds the string "hello world this is john doe".
+// // The loop iterates over the string to print each character, leveraging zero-based indexing.
 
-// Code with Indexing Explanation
-var text = "hello world this is john doe"; // Declare a variable 'text' with a string of 27 characters (including spaces)
-// For this string, length is 27:
-// - First character 'h' is at index 0.
-// - Last character 'e' is at index 26 (27 - 1).
+// // Code with Indexing Explanation
+// var text = "hello world this is john doe"; // Declare a variable 'text' with a string of 27 characters (including spaces)
+// // For this string, length is 27:
+// // - First character 'h' is at index 0.
+// // - Last character 'e' is at index 26 (27 - 1).
 
-// Commented-Out Code: Manual Character Access
-// console.log(text[0]) // Would print 'h' (first character at index 0)
-// console.log(text[1]) // Would print 'e' (second character at index 1)
-// console.log(text[2]) // Would print 'l' (third character at index 2)
-// console.log(text[3]) // Would print 'l' (fourth character at index 3)
-// console.log(text[4]) // Would print 'o' (fifth character at index 4)
+// // Commented-Out Code: Manual Character Access
+// // console.log(text[0]) // Would print 'h' (first character at index 0)
+// // console.log(text[1]) // Would print 'e' (second character at index 1)
+// // console.log(text[2]) // Would print 'l' (third character at index 2)
+// // console.log(text[3]) // Would print 'l' (fourth character at index 3)
+// // console.log(text[4]) // Would print 'o' (fifth character at index 4)
 
-// For Loop: Iterating Over the String
-for (var i = 0; i < text.length; i += 1) {
-  // Initialize i to 0 (first index); continue while i is less than 27 (text.length); increment i by 1 each iteration
-  console.log(text[i]); // Output the character at index i (e.g., i=0 prints 'h', i=1 prints 'e', ..., i=26 prints 'e' (last character))
-}
-// Why i < text.length? This ensures the loop stops before i equals 27, as index 27 is out of bounds (last valid index is 26).
+// // For Loop: Iterating Over the String
+// for (var i = 0; i < text.length; i += 1) {
+//   // Initialize i to 0 (first index); continue while i is less than 27 (text.length); increment i by 1 each iteration
+//   console.log(text[i]); // Output the character at index i (e.g., i=0 prints 'h', i=1 prints 'e', ..., i=26 prints 'e' (last character))
+// }
+// // Why i < text.length? This ensures the loop stops before i equals 27, as index 27 is out of bounds (last valid index is 26).
 
-//========== tasks
+// //========== tasks
 
-// String Indexing Concept (Repeated for Context):
-// Strings in JavaScript are zero-indexed: the first character is at index 0.
-// The last character is at index string.length - 1, where string.length is the total number of characters.
-// Example: For "hello" (length 5), 'h' is at index 0, 'o' is at index 4 (5 - 1).
+// // String Indexing Concept (Repeated for Context):
+// // Strings in JavaScript are zero-indexed: the first character is at index 0.
+// // The last character is at index string.length - 1, where string.length is the total number of characters.
+// // Example: For "hello" (length 5), 'h' is at index 0, 'o' is at index 4 (5 - 1).
 
-// For Loop Concept (Repeated for Context):
-// A for loop is used for fixed iterations with three components:
-// 1. Initialization: Sets the counter (e.g., i = 0).
-// 2. Condition: Checks if the loop should continue (e.g., i < string.length).
-// 3. Update: Modifies the counter (e.g., i += 1).
+// // For Loop Concept (Repeated for Context):
+// // A for loop is used for fixed iterations with three components:
+// // 1. Initialization: Sets the counter (e.g., i = 0).
+// // 2. Condition: Checks if the loop should continue (e.g., i < string.length).
+// // 3. Update: Modifies the counter (e.g., i += 1).
 
-// Context for Tasks:
-// Assume a variable 'text' with the string "hello world this is john doe" (length 27).
-// - First character 'h' is at index 0.
-// - Last character 'e' is at index 26 (27 - 1).
-// Each task uses a for loop to iterate over the string, leveraging zero-based indexing.
-// Task 1: Print Only Vowels in the String
-// Goal: Use a for loop to iterate over the string and print only the vowel characters (a, e, i, o, u, case-sensitive).
+// // Context for Tasks:
+// // Assume a variable 'text' with the string "hello world this is john doe" (length 27).
+// // - First character 'h' is at index 0.
+// // - Last character 'e' is at index 26 (27 - 1).
+// // Each task uses a for loop to iterate over the string, leveraging zero-based indexing.
+// // Task 1: Print Only Vowels in the String
+// // Goal: Use a for loop to iterate over the string and print only the vowel characters (a, e, i, o, u, case-sensitive).
 
-// Declare a variable 'text' and assign it the string "hello world this is john doe" converted to lowercase to ensure case consistency
-var text = "hello world this is john doe".toLowerCase();
-// Output "Task 1" to the console to indicate the start of Task 1
-console.log("Task 1");
+// // Declare a variable 'text' and assign it the string "hello world this is john doe" converted to lowercase to ensure case consistency
+// var text = "hello world this is john doe".toLowerCase();
+// // Output "Task 1" to the console to indicate the start of Task 1
+// console.log("Task 1");
 
-// Start a for loop; initialize index 'i' to 0; continue while 'i' is less than the length of 'text'; increment 'i' by 1 each iteration
-for (var i = 0; i < text.length; i += 1) {
-  // Check if the character at index 'i' in 'text' is a vowel (a, e, i, o, or u) using multiple OR conditions
-  if (
-    text[i] === "a" ||
-    text[i] === "e" ||
-    text[i] === "i" ||
-    text[i] === "o" ||
-    text[i] === "u"
-  ) {
-    // If the character is a vowel, output it to the console
-    console.log(text[i]);
-  }
-}
+// // Start a for loop; initialize index 'i' to 0; continue while 'i' is less than the length of 'text'; increment 'i' by 1 each iteration
+// for (var i = 0; i < text.length; i += 1) {
+//   // Check if the character at index 'i' in 'text' is a vowel (a, e, i, o, or u) using multiple OR conditions
+//   if (
+//     text[i] === "a" ||
+//     text[i] === "e" ||
+//     text[i] === "i" ||
+//     text[i] === "o" ||
+//     text[i] === "u"
+//   ) {
+//     // If the character is a vowel, output it to the console
+//     console.log(text[i]);
+//   }
+// }
 
-// Alternative approach for Task 1 using includes() method
-// Start a for loop; initialize index 'i' to 0; continue while 'i' is less than the length of 'text'; increment 'i' by 1
-for (var i = 0; i < text.length; i += 1) {
-  // Check if the character at index 'i' in 'text' is included in the string "aeiou"
-  if ("aeiou".includes(text[i])) {
-    // If the character is a vowel, output it to the console
-    console.log(text[i]);
-  }
-}
+// // Alternative approach for Task 1 using includes() method
+// // Start a for loop; initialize index 'i' to 0; continue while 'i' is less than the length of 'text'; increment 'i' by 1
+// for (var i = 0; i < text.length; i += 1) {
+//   // Check if the character at index 'i' in 'text' is included in the string "aeiou"
+//   if ("aeiou".includes(text[i])) {
+//     // If the character is a vowel, output it to the console
+//     console.log(text[i]);
+//   }
+// }
 
-// Task 2: Count Spaces in the String
-// Goal: Use a for loop to count the number of space characters in the string and print the total.
+// // Task 2: Count Spaces in the String
+// // Goal: Use a for loop to count the number of space characters in the string and print the total.
 
-// Output "Task 2" to the console to indicate the start of Task 2
-console.log("Task 2");
-// Declare a variable 'spaces' and initialize it to 0 to keep track of the number of spaces
-var spaces = 0;
+// // Output "Task 2" to the console to indicate the start of Task 2
+// console.log("Task 2");
+// // Declare a variable 'spaces' and initialize it to 0 to keep track of the number of spaces
+// var spaces = 0;
 
-// Start a for loop; initialize index 'i' to 0; continue while 'i' is less than the length of 'text'; increment 'i' by 1
-for (var i = 0; i < text.length; i += 1) {
-  // Check if the character at index 'i' in 'text' is a space
-  if (text[i] === " ") {
-    // If the character is a space, increment 'spaces' by 1
-    spaces += 1;
-  }
-}
+// // Start a for loop; initialize index 'i' to 0; continue while 'i' is less than the length of 'text'; increment 'i' by 1
+// for (var i = 0; i < text.length; i += 1) {
+//   // Check if the character at index 'i' in 'text' is a space
+//   if (text[i] === " ") {
+//     // If the character is a space, increment 'spaces' by 1
+//     spaces += 1;
+//   }
+// }
 
-// Output the total number of spaces to the console
-console.log(spaces);
+// // Output the total number of spaces to the console
+// console.log(spaces);
 
-// Task 3: Print Characters at Even Indices
-// Goal: Use a for loop to print characters at even-numbered indices (e.g., 0, 2, 4, ..., 26).
+// // Task 3: Print Characters at Even Indices
+// // Goal: Use a for loop to print characters at even-numbered indices (e.g., 0, 2, 4, ..., 26).
 
-// Output "Task 3" to the console to indicate the start of Task 3
-console.log("Task 3");
-// Start a for loop; initialize index 'i' to 0; continue while 'i' is less than the length of 'text'; increment 'i' by 1
-for (var i = 0; i < text.length; i += 1) {
-  // Check if the index 'i' is even by using the modulo operator (i % 2 === 0)
-  if (i % 2 === 0) {
-    // If the index is even, output the character at index 'i' to the console
-    console.log(text[i]);
-  }
-}
+// // Output "Task 3" to the console to indicate the start of Task 3
+// console.log("Task 3");
+// // Start a for loop; initialize index 'i' to 0; continue while 'i' is less than the length of 'text'; increment 'i' by 1
+// for (var i = 0; i < text.length; i += 1) {
+//   // Check if the index 'i' is even by using the modulo operator (i % 2 === 0)
+//   if (i % 2 === 0) {
+//     // If the index is even, output the character at index 'i' to the console
+//     console.log(text[i]);
+//   }
+// }
 
-// Task 4: Reverse the String
-// Goal: Use a for loop to iterate over the string from the last index (string.length - 1) to 0 and print each character to form the reversed string.
+// // Task 4: Reverse the String
+// // Goal: Use a for loop to iterate over the string from the last index (string.length - 1) to 0 and print each character to form the reversed string.
 
-// Output "Task 4" to the console to indicate the start of Task 4
-console.log("Task 4");
+// // Output "Task 4" to the console to indicate the start of Task 4
+// console.log("Task 4");
 
-// Declare a variable 'rev' and initialize it to an empty string to store the reversed string
-var rev = "";
+// // Declare a variable 'rev' and initialize it to an empty string to store the reversed string
+// var rev = "";
 
-// Start a for loop; initialize index 'i' to the last index of 'text' (length - 1); continue while 'i' is greater than or equal to 0; decrement 'i' by 1
-for (var i = text.length - 1; i >= 0; i -= 1) {
-  // Append the character at index 'i' in 'text' to the 'rev' string
-  rev += text[i];
-}
+// // Start a for loop; initialize index 'i' to the last index of 'text' (length - 1); continue while 'i' is greater than or equal to 0; decrement 'i' by 1
+// for (var i = text.length - 1; i >= 0; i -= 1) {
+//   // Append the character at index 'i' in 'text' to the 'rev' string
+//   rev += text[i];
+// }
 
-// Output the reversed string to the console
-console.log(rev);
+// // Output the reversed string to the console
+// console.log(rev);
 
-// Task 5: Print Every Second Character
-// Goal: Use a for loop to print every second character of the string, starting from index 0 (e.g., indices 0, 2, 4, ...).
+// // Task 5: Print Every Second Character
+// // Goal: Use a for loop to print every second character of the string, starting from index 0 (e.g., indices 0, 2, 4, ...).
 
-// Output "Task 5" to the console to indicate the start of Task 5
-console.log("Task 5");
-// Start a for loop; initialize index 'i' to 0; continue while 'i' is less than the length of 'text'; increment 'i' by 1
-for (var i = 0; i < text.length; i += 1) {
-  // Check if the index 'i' is even by using the modulo operator (i % 2 === 0)
-  if (i % 2 === 0) {
-    // If the index is even, output the character at index 'i' to the console
-    console.log(text[i]);
-  }
-}
+// // Output "Task 5" to the console to indicate the start of Task 5
+// console.log("Task 5");
+// // Start a for loop; initialize index 'i' to 0; continue while 'i' is less than the length of 'text'; increment 'i' by 1
+// for (var i = 0; i < text.length; i += 1) {
+//   // Check if the index 'i' is even by using the modulo operator (i % 2 === 0)
+//   if (i % 2 === 0) {
+//     // If the index is even, output the character at index 'i' to the console
+//     console.log(text[i]);
+//   }
+// }
 
-// =============== while loop fixed iteration
+// // =============== while loop fixed iteration
 
-// Initialize variable 'i' to 1 for the while loop
-var i = 1;
-// Start a while loop; continue while 'i' is less than or equal to 10
-while (i <= 10) {
-  // Output the current value of 'i' to the console
-  console.log(i);
-  // Increment 'i' by 1 to avoid an infinite loop
-  i += 1;
-}
+// // Initialize variable 'i' to 1 for the while loop
+// var i = 1;
+// // Start a while loop; continue while 'i' is less than or equal to 10
+// while (i <= 10) {
+//   // Output the current value of 'i' to the console
+//   console.log(i);
+//   // Increment 'i' by 1 to avoid an infinite loop
+//   i += 1;
+// }
 
-// Third Code Block: Counting Down from 100 to 1
-// Start a for loop; initialize 'i' to 100; continue while 'i' is greater than or equal to 1; decrement 'i' by 1
-for (var i = 100; i >= 1; i -= 1) {
-  // Output the current value of 'i' to the console (e.g., 100, 99, 98, ..., 1)
-  console.log(i);
-}
+// // Third Code Block: Counting Down from 100 to 1
+// // Start a for loop; initialize 'i' to 100; continue while 'i' is greater than or equal to 1; decrement 'i' by 1
+// for (var i = 100; i >= 1; i -= 1) {
+//   // Output the current value of 'i' to the console (e.g., 100, 99, 98, ..., 1)
+//   console.log(i);
+// }
 
-// Initialize variable 'i' to 100 for the while loop
-var i = 100;
-// Start a while loop; continue while 'i' is greater than or equal to 1
-while (i >= 1) {
-  // Output the current value of 'i' to the console with a label "i =>"
-  console.log("i =>", i);
-  // Decrement 'i' by 1 to avoid an infinite loop
-  i -= 1;
-}
+// // Initialize variable 'i' to 100 for the while loop
+// var i = 100;
+// // Start a while loop; continue while 'i' is greater than or equal to 1
+// while (i >= 1) {
+//   // Output the current value of 'i' to the console with a label "i =>"
+//   console.log("i =>", i);
+//   // Decrement 'i' by 1 to avoid an infinite loop
+//   i -= 1;
+// }
 
-// Initialize variable 'spaces' to 0 to count spaces in the string
-var spaces = 0;
-// Initialize variable 'i' to 0 for the while loop
-var i = 0;
-// Start a while loop; continue while 'i' is less than the length of 'text'
-while (i < text.length) {
-  // Check if the character at index 'i' in 'text' is a space
-  if (text[i] === " ") {
-    // If the character is a space, increment 'spaces' by 1
-    spaces += 1;
-  }
-  // Increment 'i' by 1 to move to the next character
-  i += 1;
-}
+// // Initialize variable 'spaces' to 0 to count spaces in the string
+// var spaces = 0;
+// // Initialize variable 'i' to 0 for the while loop
+// var i = 0;
+// // Start a while loop; continue while 'i' is less than the length of 'text'
+// while (i < text.length) {
+//   // Check if the character at index 'i' in 'text' is a space
+//   if (text[i] === " ") {
+//     // If the character is a space, increment 'spaces' by 1
+//     spaces += 1;
+//   }
+//   // Increment 'i' by 1 to move to the next character
+//   i += 1;
+// }
 
-// Output the total number of spaces to the console with a label "total space : "
-console.log("total space : " + spaces);
+// // Output the total number of spaces to the console with a label "total space : "
+// console.log("total space : " + spaces);
 
 // Task 1: Sum of Even Numbers from 1 to 50
 // // Goal: Calculate and print the sum of all even numbers from 1 to 50 (inclusive).
@@ -392,3 +392,141 @@ console.log("total space : " + spaces);
 // // Continue looping while the counter is less than or equal to 10.
 // // Calculate the multiple (9 * counter) and print it.
 // // Increment the counter.
+// Declare an array named 'marks' containing a list of numbers
+var marks = [23, 12, 33, 34, 111111, 3423, 13, 42];
+
+// Declare an empty array 'evens' to store even numbers (currently commented out)
+// var evens = [];
+
+// --- For Loop Example (Commented Out) ---
+// Purpose: Filter even numbers from 'marks' array into 'evens' array
+// for (var i = 0; i < marks.length; i += 1) {
+//   // 'for' loop syntax: (initialization; condition; update)
+//   // - 'var i = 0': Initialize loop counter 'i' to 0
+//   // - 'i < marks.length': Continue loop while 'i' is less than array length (8 in this case)
+//   // - 'i += 1': Increment 'i' by 1 after each iteration
+//   if (marks[i] % 2 === 0) {
+//     // Check if the current element (marks[i]) is even using modulo (%)
+//     // - Modulo returns the remainder of division; if remainder is 0, the number is even
+//     evens.push(marks[i]);
+//     // If condition is true, append the even number to 'evens' array using push()
+//   }
+// }
+
+// --- While Loop Example (Commented Out) ---
+// Purpose: Same as above, filter even numbers, but using a 'while' loop
+// var i = 0;
+// // Initialize loop counter 'i' to 0 outside the loop
+// while (i < marks.length) {
+//   // 'while' loop continues as long as condition (i < marks.length) is true
+//   if (marks[i] % 2 === 0) {
+//     // Same condition as above: check if current element is even
+//     evens.push(marks[i]);
+//     // Append even number to 'evens' array
+//   }
+//   i += 1;
+//   // Increment 'i' by 1 to avoid infinite loop and move to next array element
+// }
+
+// console.log(evens);
+// // Output the 'evens' array to the console (would show [12, 34, 42] if uncommented)
+
+// --- Sum of Array Elements ---
+// Initialize a variable 'total' to store the sum of all numbers in 'marks'
+var total = 0;
+
+// Loop through the 'marks' array to calculate the sum
+for (var i = 0; i < marks.length; i += 1) {
+  // Same 'for' loop structure as above
+  total += marks[i];
+  // Add the current element (marks[i]) to 'total'
+  // - Shorthand for: total = total + marks[i]
+}
+
+// Output the sum of all elements
+console.log(total);
+// Prints: 114691 (sum of 23 + 12 + 33 + 34 + 111111 + 3423 + 13 + 42)
+
+// Calculate and output the average of the array elements
+console.log(total / marks.length);
+// Prints: 14336.375 (114691 ÷ 8, where 8 is the length of 'marks')
+
+// --- Find Largest Number in Array ---
+// Initialize 'largest' with the first element of 'marks' as a starting point
+var largest = marks[0];
+
+// Loop through the array to find the largest number
+for (var i = 0; i < marks.length; i += 1) {
+  // Same 'for' loop structure
+  if (marks[i] > largest) {
+    // Compare current element with 'largest'
+    // If current element is greater, update 'largest'
+    largest = marks[i];
+  }
+}
+
+// Output the largest number found
+console.log(largest);
+// Prints: 111111 (the largest number in the 'marks' array)
+
+// ================
+
+// Task 1: Reverse Array
+// Create a new array containing the elements of a given array in reverse order.
+// Example: For array [1, 2, 3], output [3, 2, 1].
+// Instructions: Create an empty array, use a for loop (iterate from the last index to 0) and a while loop to push elements from the input array in reverse order to the new array.
+// Test with array [4, 7, 2, 9, 1].
+
+// Task 2: Count Occurrences
+// Count how many times a specific number appears in an array.
+// Example: For array [1, 2, 2, 3, 2] and target number 2, output 3 (since 2 appears three times).
+// Instructions: Create a variable to track the count, iterate through the array using a for loop and a while loop separately, and increment the count when the target number is found.
+// Test with array [4, 7, 2, 9, 2, 2] and target 2.
+
+// Task 3: Filter Numbers Greater Than X
+// Create a new array with numbers greater than a given value X.
+// Example: For array [5, 10, 3, 15] and X = 7, output [10, 15].
+// Instructions: Create an empty array, use a for loop and a while loop to iterate through the input array, and push elements greater than X to the new array.
+// Test with array [4, 7, 2, 9, 1] and X = 5.
+
+// Task 4: Sum of Odd Numbers
+// Calculate the sum of all odd numbers in an array.
+// Example: For array [1, 2, 3, 4], output 4 (since 1 + 3 = 4).
+// Instructions: Initialize a sum variable to 0, use a for loop and a while loop to iterate through the array, check if each number is odd (number % 2 !== 0), and add odd numbers to the sum.
+// Test with array [4, 7, 2, 9, 1].
+
+// Task 5: Find Smallest Number
+// Find the smallest number in an array.
+// Example: For array [4, 2, 7, 1], output 1.
+// Instructions: Initialize a variable with the first array element, use a for loop and a while loop to iterate through the array, and update the variable if a smaller number is found.
+// Test with array [4, 7, 2, 9, 1].
+
+// Task 6: Double Array Elements
+// Create a new array where each element is double the value of the corresponding element in the input array.
+// Example: For array [1, 2, 3], output [2, 4, 6].
+// Instructions: Create an empty array, use a for loop and a while loop to iterate through the input array, multiply each element by 2, and push the result to the new array.
+// Test with array [4, 7, 2, 9, 1].
+
+// Task 7: Remove Duplicates
+// Create a new array with duplicate elements removed (keep the first occurrence).
+// Example: For array [1, 2, 2, 3, 1], output [1, 2, 3].
+// Instructions: Create an empty array, use a for loop and a while loop to iterate through the input array, and push each element to the new array only if it’s not already present (hint: use includes() or another array to track seen values).
+// Test with array [4, 7, 2, 9, 2, 4].
+
+// Task 8: Index of First Even Number
+// Find the index of the first even number in an array, or return -1 if no even numbers exist.
+// Example: For array [1, 3, 4, 5], output 2 (index of 4).
+// Instructions: Use a for loop and a while loop to iterate through the array, check if each number is even (number % 2 === 0), and return the index of the first even number found. If none found, return -1.
+// Test with array [4, 7, 2, 9, 1] and [1, 3, 5, 7].
+
+// Task 9: Array Rotation
+// Rotate the elements of an array to the left by one position (first element moves to the end).
+// Example: For array [1, 2, 3, 4], output [2, 3, 4, 1].
+// Instructions: Create a new array, use a for loop and a while loop to iterate through the input array starting from index 1 to push elements, then append the first element at the end.
+// Test with array [4, 7, 2, 9, 1].
+
+// Task 10: Cumulative Sum Array
+// Create a new array where each element is the cumulative sum of the input array up to that index.
+// Example: For array [1, 2, 3], output [1, 3, 6] (1, 1+2, 1+2+3).
+// Instructions: Create an empty array, initialize a sum variable, use a for loop and a while loop to iterate through the input array, add each element to the sum, and push the sum to the new array at each step.
+// Test with array [4, 7, 2, 9, 1].
