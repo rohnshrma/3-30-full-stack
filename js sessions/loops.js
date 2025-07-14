@@ -475,7 +475,23 @@ console.log(largest);
 // Create a new array containing the elements of a given array in reverse order.
 // Example: For array [1, 2, 3], output [3, 2, 1].
 // Instructions: Create an empty array, use a for loop (iterate from the last index to 0) and a while loop to push elements from the input array in reverse order to the new array.
-// Test with array [4, 7, 2, 9, 1].
+// Test with array.
+
+// Define the input array with elements to reverse
+var nums = [4, 7, 2, 9, 1];
+// Initialize an empty array to store reversed elements
+var rev = [];
+// Set index to the last element of the input array (length - 1)
+var i = nums.length - 1;
+// Loop while index is greater than or equal to 0
+while (i >= 0) {
+  // Add the element at index i to the reversed array
+  rev.push(nums[i]);
+  // Decrease index to move backward through the array
+  i -= 1;
+}
+// Print the reversed array: [1, 9, 2, 7, 4]
+console.log(rev);
 
 // Task 2: Count Occurrences
 // Count how many times a specific number appears in an array.
@@ -483,11 +499,51 @@ console.log(largest);
 // Instructions: Create a variable to track the count, iterate through the array using a for loop and a while loop separately, and increment the count when the target number is found.
 // Test with array [4, 7, 2, 9, 2, 2] and target 2.
 
+// Define the input array to search for target number
+var nums = [4, 7, 2, 9, 2, 2];
+// Initialize a variable to count occurrences of target number (2)
+var count = 0;
+// Set index to start at the beginning of the array
+var i = 0;
+// Loop while index is less than the array length
+while (i < nums.length) {
+  // Check if the current element equals the target number (2)
+  if (nums[i] === 2) {
+    // Increment count if the target number is found
+    count += 1;
+  }
+  // Move to the next index
+  i += 1;
+}
+// Print the number of occurrences of target number: 3
+console.log(count);
+
 // Task 3: Filter Numbers Greater Than X
 // Create a new array with numbers greater than a given value X.
 // Example: For array [5, 10, 3, 15] and X = 7, output [10, 15].
 // Instructions: Create an empty array, use a for loop and a while loop to iterate through the input array, and push elements greater than X to the new array.
 // Test with array [4, 7, 2, 9, 1] and X = 5.
+
+// Define the input array to filter
+var nums = [4, 7, 2, 9, 1];
+// Define the threshold value for filtering
+var x = 5;
+// Initialize an empty array to store numbers greater than x
+var res = [];
+// Set index to start at the beginning of the array
+var i = 0;
+// Loop while index is less than the array length
+while (i < nums.length) {
+  // Check if the current element is greater than x
+  if (nums[i] > x) {
+    // Add the element to the result array if it meets the condition
+    res.push(nums[i]);
+  }
+  // Move to the next index
+  i += 1;
+}
+// Print the array of numbers greater than x: [7, 9]
+console.log(res);
 
 // Task 4: Sum of Odd Numbers
 // Calculate the sum of all odd numbers in an array.
@@ -495,11 +551,49 @@ console.log(largest);
 // Instructions: Initialize a sum variable to 0, use a for loop and a while loop to iterate through the array, check if each number is odd (number % 2 !== 0), and add odd numbers to the sum.
 // Test with array [4, 7, 2, 9, 1].
 
+// Define the input array to sum odd numbers
+var nums = [4, 7, 2, 9, 1];
+// Initialize a variable to store the sum of odd numbers
+var total = 0;
+// Set index to start at the beginning of the array
+var i = 0;
+// Loop while index is less than the array length
+while (i < nums.length) {
+  // Check if the current element is odd (not divisible by 2)
+  if (nums[i] % 2 !== 0) {
+    // Add the odd number to the total sum
+    total += nums[i];
+  }
+  // Move to the next index
+  i += 1;
+}
+// Print the sum of odd numbers: 17 (7 + 9 + 1)
+console.log(total);
+
 // Task 5: Find Smallest Number
 // Find the smallest number in an array.
 // Example: For array [4, 2, 7, 1], output 1.
 // Instructions: Initialize a variable with the first array element, use a for loop and a while loop to iterate through the array, and update the variable if a smaller number is found.
 // Test with array [4, 7, 2, 9, 1].
+
+// Define the input array to find the smallest number
+var nums = [4, 7, 2, 9, 1];
+// Initialize smallest variable with the first element of the array
+var smallest = nums[0];
+// Set index to start at the beginning of the array
+var i = 0;
+// Loop while index is less than the array length
+while (i < nums.length) {
+  // Check if the current element is smaller than the current smallest
+  if (nums[i] < smallest) {
+    // Update smallest if a smaller number is found
+    smallest = nums[i];
+  }
+  // Move to the next index
+  i += 1;
+}
+// Print the smallest number: 1
+console.log(smallest);
 
 // Task 6: Double Array Elements
 // Create a new array where each element is double the value of the corresponding element in the input array.
@@ -507,11 +601,46 @@ console.log(largest);
 // Instructions: Create an empty array, use a for loop and a while loop to iterate through the input array, multiply each element by 2, and push the result to the new array.
 // Test with array [4, 7, 2, 9, 1].
 
+// Define the input array to double its elements
+var nums = [4, 7, 2, 9, 1];
+// Initialize an empty array to store doubled elements
+var doubles = [];
+// Set index to start at the beginning of the array
+var i = 0;
+// Loop while index is less than the array length
+while (i < nums.length) {
+  // Multiply the current element by 2 and add to the doubles array
+  doubles.push(nums[i] * 2);
+  // Move to the next index
+  i += 1;
+}
+// Print the array with doubled elements: [8, 14, 4, 18, 2]
+console.log(doubles);
+
 // Task 7: Remove Duplicates
 // Create a new array with duplicate elements removed (keep the first occurrence).
 // Example: For array [1, 2, 2, 3, 1], output [1, 2, 3].
 // Instructions: Create an empty array, use a for loop and a while loop to iterate through the input array, and push each element to the new array only if it’s not already present (hint: use includes() or another array to track seen values).
 // Test with array [4, 7, 2, 9, 2, 4].
+
+// Define the input array with possible duplicates
+var nums = [4, 7, 2, 9, 2, 4];
+// Initialize an empty array to store unique elements
+var uniques = [];
+// Set index to start at the beginning of the array
+var i = 0;
+// Loop while index is less than the array length
+while (i < nums.length) {
+  // Check if the current element is not already in the uniques array
+  if (!uniques.includes(nums[i])) {
+    // Add the element to the uniques array if it’s not a duplicate
+    uniques.push(nums[i]);
+  }
+  // Move to the next index
+  i += 1;
+}
+// Print the array with duplicates removed: [4, 7, 2, 9]
+console.log(uniques);
 
 // Task 8: Index of First Even Number
 // Find the index of the first even number in an array, or return -1 if no even numbers exist.
@@ -519,14 +648,74 @@ console.log(largest);
 // Instructions: Use a for loop and a while loop to iterate through the array, check if each number is even (number % 2 === 0), and return the index of the first even number found. If none found, return -1.
 // Test with array [4, 7, 2, 9, 1] and [1, 3, 5, 7].
 
+// Define the input array to find the first even number
+var nums = [4, 7, 2, 9, 1];
+// Set index to start at the beginning of the array
+var i = 0;
+// Initialize result to -1 (default if no even number is found)
+var res = -1;
+// Loop while index is less than the array length
+while (i < nums.length) {
+  // Check if the current element is even (divisible by 2)
+  if (nums[i] % 2 === 0) {
+    // Set result to the current index (first even number found)
+    res = i;
+    // Exit the loop after finding the first even number
+    break;
+  }
+  // Move to the next index
+  i += 1;
+}
+// Print the index of the first even number: 0 (index of 4)
+console.log(res);
+
 // Task 9: Array Rotation
 // Rotate the elements of an array to the left by one position (first element moves to the end).
 // Example: For array [1, 2, 3, 4], output [2, 3, 4, 1].
 // Instructions: Create a new array, use a for loop and a while loop to iterate through the input array starting from index 1 to push elements, then append the first element at the end.
 // Test with array [4, 7, 2, 9, 1].
 
+// Define the input array to rotate left by one position
+var nums = [4, 7, 2, 9, 1];
+// Initialize an empty array to store rotated elements
+var res = [];
+// Set index to 1 to start from the second element
+var i = 1;
+// Loop while index is less than the array length
+while (i < nums.length) {
+  // Add elements from index 1 to the end to the result array
+  res.push(nums[i]);
+  // Move to the next index
+  i += 1;
+}
+// Add the first element of the input array to the end of the result
+res.push(nums[0]);
+// Print the rotated array: [7, 2, 9, 1, 4]
+console.log(res);
+
 // Task 10: Cumulative Sum Array
 // Create a new array where each element is the cumulative sum of the input array up to that index.
 // Example: For array [1, 2, 3], output [1, 3, 6] (1, 1+2, 1+2+3).
 // Instructions: Create an empty array, initialize a sum variable, use a for loop and a while loop to iterate through the input array, add each element to the sum, and push the sum to the new array at each step.
 // Test with array [4, 7, 2, 9, 1].
+// Define the input array to compute cumulative sums
+var nums = [4, 7, 2, 9, 1];
+// Initialize an empty array to store cumulative sums
+var result = [];
+// Initialize a variable to track the running sum
+var sum = 0;
+// Set index to start at the beginning of the array
+var i = 0;
+// Loop while index is less than the array length
+while (i < nums.length) {
+  // Add the current element to the running sum
+  sum += nums[i];
+  // Add the current sum to the result array
+  result.push(sum);
+  // Move to the next index
+  i += 1;
+}
+// Print the original array: [4, 7, 2, 9, 1]
+console.log(nums);
+// Print the cumulative sum array: [4, 11, 13, 22, 23]
+console.log(result);
