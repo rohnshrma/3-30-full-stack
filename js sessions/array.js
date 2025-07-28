@@ -314,3 +314,172 @@ var fruits = ["Apple", "banana", "ORANGE", "Mango", "kiwi", "PINEAPPLE"];
 // Task 20: Multiply Scores by Index with `map`
 // Use `map` to create an array where each score in `scores` is multiplied by its index in the array.
 // Expected output: [0, 92, 156, 285, 352, 325, 432, 630, 648, 891]
+
+// reduce : return a single value
+
+// Create a list of numbers called 'marks'
+var marks = [23, 1, 23, 43, 4, 2, 3, 34, 80, 67, 45, 88, 90, 100];
+
+// Show the whole list in the console
+console.log(marks); // Output: [23, 1, 23, 43, 4, 2, 3, 34]
+
+// Use 'reduce' to add all numbers in the list and get one final number
+// 'reduce' uses a function with two parts:
+// - acc (accumulator): Keeps the running total
+// - cv (current value): The number being added in each step
+// Since we didn't give a starting value, 'reduce' uses the first number (23) as 'acc'
+// and starts adding from the second number (1)
+var x = marks.reduce((acc, cv) => {
+  // Show the current 'acc' and 'cv' to understand what's happening
+  console.log("acc", acc, "cv", cv);
+
+  // Add 'acc' and 'cv', and return the result for the next step
+  return acc + cv;
+});
+
+// Show the final sum
+console.log(x); // Output: 133
+
+//  2. when the value of acc is specified explicitly
+
+// Show the whole list in the console
+console.log(marks); // Output: [23, 1, 23, 43, 4, 2, 3, 34]
+
+// Use 'reduce' to add all numbers in the list and get one final number
+// The '0' at the end sets the starting total to 0
+// So, 'acc' starts at 0, and 'cv' starts with the first number (23)
+var x = marks.reduce((acc, cv) => {
+  // Show the current 'acc' and 'cv' to understand what's happening
+  console.log("acc", acc, "cv", cv);
+
+  // Add 'acc' and 'cv', and return the result for the next step
+  return acc + cv;
+}, 0);
+
+// Show the final sum
+console.log(x); // Output: 133
+
+// Declare a variable 'maxi' and set it to the first element of the 'marks' array (assumes array has at least one element)
+// This variable will store the largest number found as we loop through the array
+var maxi = marks[0];
+
+// Use the forEach method to loop through each element in the 'marks' array
+// forEach takes a function that runs for each element; 'mark' is the current element in each iteration
+// The arrow function syntax '=> ' is a concise way to define the function
+marks.forEach((mark) => {
+  // Check if the current element 'mark' is greater than the current maximum 'maxi'
+  if (mark > maxi) {
+    // If true, update 'maxi' to the current 'mark' because we found a larger value
+    maxi = mark;
+  }
+  // If 'mark' is not greater than 'maxi', do nothing and continue to the next element
+});
+
+// Output the final value of 'maxi' to the console, which is the largest number in the array
+console.log(maxi);
+
+// Declare a variable 'max' to store the maximum value found using the reduce method
+// The reduce method processes the array to produce a single value (here, the largest number)
+// It takes a callback function with two parameters: 'largest' (the accumulator, or running maximum) and 'cv' (current value)
+// The second argument to reduce, 'marks[0]', sets the initial value of 'largest'
+var max = marks.reduce((largest, cv) => {
+  // Check if the current value 'cv' is greater than the current maximum 'largest'
+  if (cv > largest) {
+    // If true, return 'cv' as the new maximum for the next iteration of reduce
+    // The commented line 'largest = cv' is unnecessary because returning 'cv' updates the accumulator
+    return cv;
+  } else {
+    // If 'cv' is not greater, return 'largest' to keep it as the maximum for the next iteration
+    // The commented line 'largest = largest' is redundant since returning 'largest' achieves the same
+    return largest;
+  }
+}, marks[0]); // Initialize the accumulator 'largest' with the first element of the array
+
+// Output the final value of 'max' to the console, which is the largest number in the array
+console.log(max);
+
+// Declare a variable 'mini' and set it to the first element of the 'marks' array
+// This variable will store the smallest number found as we loop through the array
+var mini = marks[0];
+
+// Use the forEach method to loop through each element in the 'marks' array
+// 'mark' represents the current element in each iteration
+marks.forEach((mark) => {
+  // Check if the current element 'mark' is less than the current minimum 'mini'
+  if (mark < mini) {
+    // If true, update 'mini' to the current 'mark' because we found a smaller value
+    mini = mark;
+  }
+  // If 'mark' is not less than 'mini', do nothing and continue to the next element
+});
+
+// Output the final value of 'mini' to the console, which is the smallest number in the array
+console.log(mini);
+
+// Declare a variable 'min' to store the minimum value found using the reduce method
+// The reduce method will find the smallest number by comparing each element
+// The callback function takes 'smallest' (the accumulator, or running minimum) and 'cv' (current value)
+var min = marks.reduce((smallest, cv) => {
+  // Check if the current value 'cv' is less than the current minimum 'smallest'
+  if (cv < smallest) {
+    // If true, return 'cv' as the new minimum for the next iteration
+    // The commented line 'smallest = cv' is unnecessary because returning 'cv' updates the accumulator
+    return cv;
+  } else {
+    // If 'cv' is not less, return 'smallest' to keep it as the minimum for the next iteration
+    // The commented line 'smallest = smallest' is redundant since returning 'smallest' achieves the same
+    return smallest;
+  }
+}, marks[0]); // Initialize the accumulator 'smallest' with the first element of the array
+
+// Output the final value of 'min' to the console, which is the smallest number in the array
+console.log(min);
+
+// Filter numbers greater than or equal to 60 (representing passing scores).
+// Map these numbers to their squared values (e.g., for a math-related transformation).
+// Use reduce to calculate the sum of the squared values.
+
+// Define a variable 'res' to store the result of the chained operations on the 'marks' array
+// 'marks' is assumed to be an array of numbers representing student scores
+var res = marks
+  // filter: Creates a new array with elements that pass the test in the provided function
+  // Here, it keeps only scores >= 60 (representing passing scores)
+  // Arrow function (mark) => mark > 60 checks if each score is >= 60
+  .filter((mark) => mark >= 60)
+  // map: Creates a new array by applying the provided function to each element
+  // Here, it squares each filtered score (e.g., 70 becomes 4900) for a math-related transformation
+  // Arrow function (mark) => mark ** 2 uses the exponentiation operator (**) to square the score
+  .map((mark) => mark ** 2)
+  // reduce: Combines all elements into a single value using the provided function
+  // Here, it sums the squared scores, starting with an initial value of 0
+  // Arrow function (acc, cv) => { return acc + cv; } adds the current value (cv) to the accumulator (acc)
+  .reduce((acc, cv) => {
+    return acc + cv;
+  }, 0);
+
+// Log the result to the console to display the sum of squared passing scores
+console.log(res);
+
+// Define a variable 'greater_than_60' to store the filtered array of passing scores
+// filter: Creates a new array with scores >= 60
+// The function uses a traditional function body with 'return' for clarity
+var greater_than_60 = marks.filter((mark) => {
+  return mark >= 60; // Only include scores >= 60 (passing scores)
+});
+
+// Define a variable 'squares' to store the array of squared passing scores
+// map: Creates a new array by squaring each score in 'greater_than_60'
+// The function uses a traditional function body with 'return' for clarity
+var squares = greater_than_60.map((mark) => {
+  return mark ** 2; // Square each score using the exponentiation operator (**)
+});
+
+// Define a variable 'total' to store the sum of the squared scores
+// reduce: Sums all squared scores, starting with an initial value of 0
+// The function uses a traditional function body with 'return' for clarity
+var total = squares.reduce((acc, cv) => {
+  return acc + cv; // Add the current squared score (cv) to the accumulator (acc)
+}, 0);
+
+// Log the result to the console to display the sum of squared passing scores
+console.log(total);
