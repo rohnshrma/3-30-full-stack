@@ -95,13 +95,55 @@ function sendRequest(url, cb) {
 // Calls the `sendRequest` function with two arguments:
 // - The URL "https://jsonplaceholder.typicode.com/users", a public API endpoint that returns a list of users in JSON format.
 // - An anonymous arrow function (callback) that handles the response or error.
-sendRequest("https://jsonplaceholder.typicode.com/users", (err, data) => {
-  // Checks if there is an error (i.e., `err` is not null).
-  if (err) {
-    // If an error exists, logs the error message to the console.
-    console.log("error =>", err);
-  } else {
-    // If no error, logs the response data (a string containing JSON data) to the console.
-    console.log("data =>", data);
+sendRequest(
+  "https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw,racist,sexist&type=twopart",
+  (err, data) => {
+    // Checks if there is an error (i.e., `err` is not null).
+    if (err) {
+      // If an error exists, logs the error message to the console.
+      console.log("error =>", err);
+    } else {
+      // If no error, logs the response data (a string containing JSON data) to the console.
+      console.log("data =>", data);
+      sendRequest(
+        "https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw,racist,sexist&type=twopart",
+        (err, data) => {
+          // Checks if there is an error (i.e., `err` is not null).
+          if (err) {
+            // If an error exists, logs the error message to the console.
+            console.log("error =>", err);
+          } else {
+            // If no error, logs the response data (a string containing JSON data) to the console.
+            console.log("data =>", data);
+            sendRequest(
+              "https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw,racist,sexist&type=twopart",
+              (err, data) => {
+                // Checks if there is an error (i.e., `err` is not null).
+                if (err) {
+                  // If an error exists, logs the error message to the console.
+                  console.log("error =>", err);
+                } else {
+                  // If no error, logs the response data (a string containing JSON data) to the console.
+                  console.log("data =>", data);
+                  sendRequest(
+                    "https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw,racist,sexist&type=twopart",
+                    (err, data) => {
+                      // Checks if there is an error (i.e., `err` is not null).
+                      if (err) {
+                        // If an error exists, logs the error message to the console.
+                        console.log("error =>", err);
+                      } else {
+                        // If no error, logs the response data (a string containing JSON data) to the console.
+                        console.log("data =>", data);
+                      }
+                    }
+                  );
+                }
+              }
+            );
+          }
+        }
+      );
+    }
   }
-});
+);
