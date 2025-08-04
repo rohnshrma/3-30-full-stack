@@ -1,0 +1,100 @@
+/* Container element with 70% width, centered horizontally with automatic left and right margins.
+   Text inside the container is centered. */
+.container {
+  width: 70%;
+  margin: auto;
+  text-align: center;
+}
+
+/* Dice elements are centered text-wise and displayed as inline-block,
+   which means they flow inline but retain block properties (like width, height). */
+.dice {
+  text-align: center;
+  display: inline-block;
+}
+
+/* Sets the background color of the entire page to a dark grayish-blue (#393e46). */
+body {
+  background-color: #393e46;
+}
+
+/* Styling for all <h1> headings:
+   - 30px margin on all sides
+   - Uses "Lobster" cursive font for a decorative look
+   - Text shadow offset by 5px horizontally, color #232931, giving 3D effect
+   - Very large font size: 8rem (8 times root font size)
+   - Text color is a bright teal (#4ecca3) */
+h1 {
+  margin: 30px;
+  font-family: "Lobster", cursive;
+  text-shadow: 5px 0 #232931;
+  font-size: 8rem;
+  color: #4ecca3;
+}
+
+/* Styling for all paragraphs <p>:
+   - Font size of 2rem for readability
+   - Teal color (#4ecca3) matching theme
+   - Uses a playful cursive font "Indie Flower" */
+p {
+  font-size: 2rem;
+  color: #4ecca3;
+  font-family: "Indie Flower", cursive;
+}
+
+/* Image elements (<img>) styling:
+   - Adds margin of 1rem on top for spacing
+   - Sets image width to 80% of the container or parent element
+   - Applies a drop shadow offset -4px horizontally and vertically with black color (#000),
+     creating a subtle lifted effect */
+img {
+  margin-top: 1rem;
+  width: 80%;
+  filter: drop-shadow(-4px -4px 4px #000);
+}
+
+/* CSS class to apply a rolling animation to elements with this class:
+   - Uses "roll" keyframes animation
+   - Animation lasts 1 second per cycle
+   - Runs infinitely (keeps repeating) */
+.roll {
+  animation-name: roll;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+}
+
+/* Footer element styling:
+   - 5% margin on top (spacing from preceding elements)
+   - Text color nearly white (#eeeeee)
+   - Centered text alignment
+   - Uses the playful "Indie Flower" font */
+footer {
+  margin-top: 5%;
+  color: #eeeeee;
+  text-align: center;
+  font-family: "Indie Flower", cursive;
+}
+
+/* Element with id "rel" (likely a link or specific text):
+   - Teal color to match theme (#4ecca3)
+   - Removes underline from text */
+#rel {
+  color: #4ecca3;
+  text-decoration: none;
+}
+
+/* Defines the keyframes named 'roll' that animate over time:
+   - At 0% (start of animation): no scaling, no rotation
+   - At 50% (halfway through): scale up to 1.1 times original size (slightly bigger)
+   - At 100% (end): scale back to original size and rotate a full 360 degrees clockwise */
+@keyframes roll {
+  0% {
+    transform: scale(1) rotate(0);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1) rotate(360deg);
+  }
+}

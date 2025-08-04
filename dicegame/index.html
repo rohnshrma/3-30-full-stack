@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <!-- Sets the webpage title shown on the browser tab -->
+    <title>Dicee</title>
+
+    <!-- Link to external stylesheet "styles.css" which contains all your CSS rules -->
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Loads Google Fonts "Indie Flower" and "Lobster" to be used in CSS -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Indie+Flower|Lobster"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <!-- Main container div to center contents and style as per .container CSS -->
+    <div class="container">
+      <!-- Large heading, initially says "Refresh Me", changed by JS during game -->
+      <h1>Refresh Me</h1>
+
+      <!-- Paragraph instructing user to press spacebar to start -->
+      <p>Press 'SpaceBar' to play.</p>
+
+      <!-- Player 1 dice block -->
+      <div class="dice">
+        <p>Player 1</p>
+        <!-- Dice image for player 1, initially showing dice6.png -->
+        <img class="img1" src="dice6.png" />
+      </div>
+
+      <!-- Player 2 dice block -->
+      <div class="dice">
+        <p>Player 2</p>
+        <!-- Dice image for player 2, initially showing dice6.png
+             Minor note: there is an extra space after dice6.png which does not hurt but can be removed -->
+        <img class="img2" src="dice6.png " />
+      </div>
+    </div>
+
+    <!-- External JavaScript file that contains dice rolling logic -->
+    <script type="text/javascript" src="script.js"></script>
+  </body>
+
+  <!-- Footer outside the container with a simple credit text -->
+  <footer>created by : Rohan Sharma</footer>
+</html>
