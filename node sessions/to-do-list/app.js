@@ -2,7 +2,7 @@ import express from "express";
 const app = express();
 const PORT = 3000;
 
-const tasks = [];
+var tasks = [];
 
 // middlwares
 app.use(express.static("public"));
@@ -17,7 +17,7 @@ app
   .get((req, res) => {
     res.render("home", {
       today: new Date().toLocaleDateString(),
-      data: tasks,
+      data: tasks.reverse(),
     });
   })
   .post((req, res) => {
@@ -26,6 +26,17 @@ app
     console.log(tasks);
     res.redirect("/");
   });
+
+app.route("/delete/:id").get((req, res) => {
+  const deleteId = parseInt(req.params.id);
+
+  tasks = tasks.filter((item, index) => {
+    return index !== deleteId;
+  });
+  console.log(`after deleting item on ${deleteId} index`, tasks);
+
+  res.redirect("/");
+});
 
 // localhost
 
