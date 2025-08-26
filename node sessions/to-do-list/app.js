@@ -1,87 +1,106 @@
-// Import the Express framework, a popular Node.js library for building web servers and APIs.
-// Express simplifies handling HTTP requests, routing, and middleware.
+// Loads Express, a tool that helps create a web server to handle requests
 import express from "express";
 
-// Initialize an Express application instance.
-// 'app' is the main object used to define routes, middleware, and start the server.
+// Loads Mongoose, a tool to connect and work with MongoDB (a database)
+import mongoose, { mongo } from "mongoose";
+
+// Creates a new web server app using Express
 const app = express();
 
-// Define the port number where the server will listen for incoming HTTP requests.
-// 3000 is a common choice for local development.
+// Sets the port number (like a channel) where the server will listen for requests
 const PORT = 3000;
 
-// Create an empty array to store tasks (the to-do list items).
-// This array acts as an in-memory "database" for this simple application.
-var tasks = [];
-
-// ---- Middleware Setup ----
-// Middleware are functions that process requests before they reach route handlers.
-
-// Serve static files (e.g., CSS, JavaScript, images) from the "public" directory.
-// For example, a file at "public/style.css" can be accessed at "/style.css" in the browser.
-app.use(express.static("public"));
-
-// Parse incoming request bodies with URL-encoded data (e.g., form submissions).
-// 'extended: true' allows parsing of nested objects in the request body.
-app.use(express.urlencoded({ extended: true }));
-
-// Set the view engine to EJS (Embedded JavaScript), a templating engine.
-// EJS allows embedding JavaScript in HTML to dynamically generate web pages.
-app.set("view engine", "ejs");
-
-// ---- Route Definitions ----
-// Routes define how the server responds to specific HTTP requests (e.g., GET, POST).
-
-// Define a route for the root URL ("/") that handles both GET and POST requests.
-app
-  .route("/")
-  // Handle GET requests to "/".
-  // This renders the "home" EJS template, passing data to display.
-  .get((req, res) => {
-    // Render the "home.ejs" template, passing two variables:
-    // - 'today': The current date formatted as a string (e.g., "8/25/2025").
-    // - 'data': The tasks array, reversed to show the newest tasks first.
-    res.render("home", {
-      today: new Date().toLocaleDateString(),
-      data: tasks.reverse(),
-    });
+// Connects to a MongoDB database called 'abcToDoListDB' running on your computer
+mongoose
+  .connect("mongodb://localhost:27017/abcToDoListDB")
+  // If connection works, prints the database server's address (like 'localhost')
+  .then((res) => {
+    console.log("Connected to DB :", res.connection.host);
   })
-  // Handle POST requests to "/".
-  // This is triggered when a form is submitted to add a new task.
-  .post((req, res) => {
-    // Extract the value of the "new_item" field from the form data in the request body.
-    const item = req.body.new_item;
-    // Add the new task to the 'tasks' array.
-    tasks.push(item);
-    // Log the updated tasks array to the console for debugging.
-    console.log(tasks);
-    // Redirect the user back to the root URL ("/"), triggering a GET request to refresh the page.
-    res.redirect("/");
+  // If there's an error (like database not running), prints the error
+  .catch((err) => {
+    console.log(err);
   });
 
-// Define a route for DELETE functionality at "/delete/:id".
-// The ":id" is a URL parameter representing the index of the task to delete.
-app.route("/delete/:id").get((req, res) => {
-  // Extract the "id" parameter from the URL and convert it to an integer.
-  const deleteId = parseInt(req.params.id);
-
-  // Filter the 'tasks' array to remove the task at the specified index.
-  // The filter method creates a new array, keeping only elements where the condition is true.
-  // Here, we keep all tasks where the index does not match 'deleteId'.
-  tasks = tasks.filter((item, index) => {
-    return index !== deleteId;
-  });
-  // Log the updated tasks array after deletion for debugging.
-  console.log(`after deleting item on ${deleteId} index`, tasks);
-
-  // Redirect the user back to the root URL ("/"), refreshing the page to show the updated task list.
-  res.redirect("/");
+// Defines the structure (schema) for a task in the database
+const taskSchema = new mongoose.Schema({
+  // Each task has a 'title' (text), which must be at least 3 characters, required, and unique
+  title: { type: String, minLength: 3, required: true, unique: true },
 });
 
-// ---- Start the Server ----
-// Start the Express server, making it listen for incoming requests on the specified port.
+// Creates a 'Task' model to interact with the 'tasks' collection in the database
+const Task = new mongoose.model("Task", taskSchema);
+
+// Tells the server to serve files like style.css from a folder called 'public'
+app.use(express.static("public"));
+
+// Allows the server to understand data sent from forms (like when you add a task)
+app.use(express.urlencoded({ extended: true }));
+
+// Tells the server to use EJS for creating dynamic web pages
+app.set("view engine", "ejs");
+
+// Sets up routes for the main page ('/')
+app
+  .route("/")
+  // Handles requests to view the to-do list (GET request)
+  .get(async (req, res) => {
+    try {
+      // Gets all tasks from the database
+      const tasks = await Task.find({});
+
+      // If tasks exist, show the 'home' EJS page (the to-do list)
+      if (tasks) {
+        res.render("home", {
+          // Sends today's date (e.g., '8/26/2025') to the EJS file
+          today: new Date().toLocaleDateString(),
+          // Sends the list of tasks, reversed so newest tasks show first
+          data: tasks.reverse(),
+        });
+      }
+    } catch (err) {
+      // Prints any errors (like database issues)
+      console.log(err);
+    }
+  })
+  // Handles requests to add a new task (POST request from the form)
+  .post(async (req, res) => {
+    try {
+      // Gets the new task text from the form (named 'new_item')
+      const item = req.body.new_item;
+
+      // Creates a new task with the entered text
+      const task = new Task({
+        title: item,
+      });
+
+      // Saves the task to the database
+      await task.save();
+
+      // Reloads the main page to show the updated list
+      res.redirect("/");
+    } catch (err) {
+      // Prints errors (e.g., if the task title is too short or already exists)
+      console.log(err);
+    }
+  });
+
+// Commented-out code for deleting tasks (not currently used)
+// app.route("/delete/:id").get((req, res) => {
+//   // Gets the task index from the URL (e.g., '/delete/0')
+//   const deleteId = parseInt(req.params.id);
+
+//   // Removes the task at that index from an array (old way, not using database)
+//   tasks = tasks.filter((item, index) => {
+//     return index !== deleteId;
+//   });
+//   console.log(`after deleting item on ${deleteId} index`, tasks);
+
+//   // Reloads the main page
+//   res.redirect("/");
+// });
+
+// Starts the server on port 3000 and prints a message
 app.listen(PORT, () => {
-  // This callback runs once the server starts successfully.
-  // Log a message to confirm the server is running and on which port.
   console.log("Server started on port", PORT);
 });
