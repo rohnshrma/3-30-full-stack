@@ -86,19 +86,31 @@ app
   });
 
 // Commented-out code for deleting tasks (not currently used)
-// app.route("/delete/:id").get((req, res) => {
-//   // Gets the task index from the URL (e.g., '/delete/0')
-//   const deleteId = parseInt(req.params.id);
+app.route("/delete/:id").get(async (req, res) => {
+  try {
+    const deleteId = req.params.id;
 
-//   // Removes the task at that index from an array (old way, not using database)
-//   tasks = tasks.filter((item, index) => {
-//     return index !== deleteId;
-//   });
-//   console.log(`after deleting item on ${deleteId} index`, tasks);
+    if (!mongoose.isValidObjectId(deleteId)) {
+      console.log("Invalid object id");
+      return res.redirect("/");
+    }
 
-//   // Reloads the main page
-//   res.redirect("/");
-// });
+    console.log(deleteId);
+
+    const exisitingItem = await Task.findOne({ _id: deleteId });
+
+    if (!exisitingItem) {
+      console.log("Item Not Found");
+      return res.redirect("/");
+    }
+
+    const deletedItem = await Task.findByIdAndDelete(deleteId);
+    console.log("deleted item => ", deletedItem);
+    res.redirect("/");
+  } catch (err) {
+    console.log(err);
+  }
+});
 
 // Starts the server on port 3000 and prints a message
 app.listen(PORT, () => {

@@ -22,6 +22,11 @@
       crossorigin="anonymous"
     />
 
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+    />
+
     <!-- Links to a custom stylesheet (style.css) for additional styling, served from the application's static files -->
     <link rel="stylesheet" href="/style.css" />
   </head>
@@ -53,7 +58,9 @@
       />
 
       <!-- Submit button to add the new item, styled as a Bootstrap button with margin -->
-      <button class="btn btn-light ml-2">ADD +</button>
+      <button class="btn btn-light ml-2">
+        ADD <i class="fa-solid fa-plus"></i>
+      </button>
     </form>
 
     <!-- Container for the list of to-do items, styled with Bootstrap classes -->
@@ -62,7 +69,7 @@
       <% if (data.length > 0) { %>
 
       <!-- Loops through each item in the data array, with index for reference -->
-      <% data.forEach((item, index) => { %>
+      <% data.forEach((item) => { %>
       <!-- Div for each to-do item, styled with padding, border, and flexbox for layout -->
       <div
         class="px-3 py-2 border-bottom d-flex justify-content-between align-items-center"
@@ -71,7 +78,7 @@
         <%= item.title %>
 
         <!-- Link to delete the item, using the index in the URL for identification -->
-        <a class="btn btn-light" href="/delete/<%= index %>">Delete</a>
+        <a class="btn btn-light" href="/delete/<%= item._id %>">Delete</a>
       </div>
       <!-- Closes the forEach loop -->
       <% }) %>
