@@ -1,6 +1,28 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+p {
+  margin: 0;
+}
+
 form input {
-  width: 85% !important;
+  width: 43% !important;
+}
+form select {
+  width: 43% !important;
 }
 form button {
   width: 10%;
+}
+.task:last-child {
+  border-bottom: 0 !important;
+}
+
+.task .task_title {
+  width: 70%;
 }
