@@ -1,8 +1,12 @@
 import express from "express";
 import mongoose from "mongoose";
 import connectDB from "./config/db.js";
+import md5 from "md5";
+
 const app = express();
 const PORT = 3000;
+
+console.log(md5("hello world"));
 
 // connect to local db
 connectDB();
@@ -42,7 +46,7 @@ app
         return res.redirect("/register");
       }
 
-      if (existingUser.password === password) {
+      if (existingUser.password === md5(password)) {
         res.render("secrets");
       }
     } catch (err) {
@@ -62,7 +66,7 @@ app
 
       const new_user = new User({
         username: username,
-        password: password,
+        password: md5(password),
       });
 
       await new_user.save();
