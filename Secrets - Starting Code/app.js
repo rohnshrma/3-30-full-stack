@@ -1,12 +1,10 @@
 import express from "express";
 import mongoose from "mongoose";
 import connectDB from "./config/db.js";
-import md5 from "md5";
+import bcrypt from "bcryptjs";
 
 const app = express();
 const PORT = 3000;
-
-console.log(md5("hello world"));
 
 // connect to local db
 connectDB();
@@ -39,16 +37,21 @@ app
     try {
       const { username, password } = req.body;
 
-      const existingUser = await User.findOne({ username: username });
+      // comparing hashed password with the incoming password
+      const existingUser = await User.findOne({ username: username }); // returns true or false
 
       if (!existingUser) {
         console.log("User not found");
         return res.redirect("/register");
       }
 
-      if (existingUser.password === md5(password)) {
-        res.render("secrets");
+      const match = await bcrypt.compare(password, existingUser.password);
+
+      if (!match) {
+        console.log("Invalid password");
+        return res.redirect("/login");
       }
+      res.render("secrets");
     } catch (err) {
       console.log("failed to login user");
     }
@@ -64,9 +67,12 @@ app
       const { username, password } = req.body;
       console.log(username, password);
 
+      // use bcrypt to hash password
+      var hash = await bcrypt.hash(password, 11);
+
       const new_user = new User({
         username: username,
-        password: md5(password),
+        password: hash,
       });
 
       await new_user.save();
