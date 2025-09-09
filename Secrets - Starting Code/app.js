@@ -7,14 +7,34 @@ import connectDB from "./config/db.js";
 // Import the User model to interact with the 'user' collection in MongoDB
 import User from "./model/user.js";
 
+import passport from "passport";
+
+import { Strategy as LocalStrategy } from "passport-local";
+
+import session from "express-session";
+
+import { config } from "dotenv";
+
+config();
+
 // Create an instance of an Express application
 const app = express();
 
 // Define the port number where the server will listen for requests
-const PORT = 3000;
+const PORT = process.env.PORT;
 
 // Call the connectDB function to establish a connection to the MongoDB database
 connectDB();
+
+function isAuthenticated(req, res, next) {
+  console.log("checking auth");
+  console.log(req.isAuthenticated());
+  if (req.isAuthenticated()) {
+    return next();
+  } else {
+    res.redirect("/login");
+  }
+}
 
 // Middleware to serve static files (e.g., CSS, images) from the 'public' directory
 app.use(express.static("public"));
@@ -25,6 +45,55 @@ app.use(express.urlencoded({ extended: true }));
 
 // Set the view engine to EJS, a templating engine for rendering dynamic HTML pages
 app.set("view engine", "ejs");
+
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false,
+  })
+);
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+passport.use(
+  new LocalStrategy(async (username, password, cb) => {
+    try {
+      console.log("local strategy running");
+      const user = await User.findOne({ username });
+      console.log("local strategy running =>", user);
+
+      if (!user) {
+        return cb(null, false, { message: "incorrect username" });
+      }
+      console.log("checking password");
+
+      const isMatch = await user.comparePassword(password);
+      console.log("checking password ? ", isMatch);
+
+      if (!isMatch) {
+        return cb(null, false, { message: "incorrect password" });
+      }
+      return cb(null, user);
+    } catch (err) {
+      return cb(err);
+    }
+  })
+);
+
+passport.serializeUser((user, cb) => {
+  cb(null, user._id);
+});
+
+passport.deserializeUser(async (id, cb) => {
+  try {
+    const user = await User.findById(id);
+    cb(null, user);
+  } catch (err) {
+    cb(err);
+  }
+});
 
 // Define a route for the root URL ("/")
 // GET request: Renders the 'home' EJS template when the user visits the root URL
@@ -40,45 +109,12 @@ app
     res.render("login");
   })
   // POST request: Handles login form submission
-  .post(async (req, res) => {
-    try {
-      // Destructure 'username' and 'password' from the form data in the request body
-      const { username, password } = req.body;
-
-      // Query the database to find a user with the provided username
-      const existingUser = await User.findOne({ username: username });
-
-      // Log the found user (or null if not found) for debugging
-      console.log(existingUser);
-
-      // If no user is found, redirect to the registration page
-      if (!existingUser) {
-        console.log("User not found");
-        return res.redirect("/register");
-      }
-
-      // Log a message before comparing passwords for debugging
-      console.log("before running match ");
-
-      // Call the comparePassword method (defined in the User model) to verify the provided password
-      const match = await existingUser.comparePassword(password);
-
-      // Log the result of the password comparison (true/false) for debugging
-      console.log(match);
-
-      // If the password doesn't match, redirect back to the login page
-      if (!match) {
-        console.log("Invalid password");
-        return res.redirect("/login");
-      }
-
-      // If the password matches, render the 'secrets' EJS template (e.g., a protected page)
-      res.render("secrets");
-    } catch (err) {
-      // Log any errors that occur during the login process
-      console.log("failed to login user");
-    }
-  });
+  .post(
+    passport.authenticate("local", {
+      successRedirect: "/secrets",
+      failureRedirect: "/login",
+    })
+  );
 
 // Define a route for the "/register" URL
 app
@@ -96,25 +132,35 @@ app
       // Log the username and password for debugging
       console.log(username, password);
 
+      const existingUser = await User.findOne({ username });
+      if (existingUser) {
+        return res.redirect("/login");
+      }
+
       // Create a new User instance with the provided username and password
       const new_user = new User({
-        username: username,
-        password: password,
+        username,
+        password,
       });
 
       // Save the new user to the database (password will be hashed by the User model's pre-save hook)
       await new_user.save();
 
-      // Log the newly created user for debugging
-      console.log("new user => ", new_user);
-
-      // Render the 'secrets' EJS template after successful registration
-      res.render("secrets");
+      req.login(new_user, (err) => {
+        if (err) return next(err);
+        // Log the newly created user for debugging
+        console.log("new user => ", new_user);
+        res.redirect("/secrets");
+      });
     } catch (err) {
       // Log any errors that occur during the registration process
       console.log("failed to save user to db", err);
     }
   });
+
+app.route("/secrets").get(isAuthenticated, (req, res) => {
+  res.render("secrets");
+});
 
 // Start the Express server and listen for incoming requests on the specified port
 app.listen(PORT, () => {
