@@ -10,6 +10,7 @@ import User from "./model/user.js";
 import passport from "passport";
 
 import { Strategy as LocalStrategy } from "passport-local";
+import { Strategy as GoogleStrategy } from "passport-google-oauth20";
 
 import session from "express-session";
 
@@ -81,6 +82,44 @@ passport.use(
     }
   })
 );
+passport.use(
+  new GoogleStrategy(
+    {
+      clientID: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+      callbackURL: "/auth/google/callback",
+    },
+    async (accessToken, refreshToken, profile, cb) => {
+      console.log("Google Callback Triggered");
+      try {
+        let user = await User.findOne({
+          $or: [
+            { googleId: profile.id },
+            { username: profile.emails[0].value },
+          ],
+        });
+
+        if (!user) {
+          user = new User({
+            googleId: profile.id,
+            username: profile.emails[0].value,
+            name: profile.displayName,
+          });
+          await user.save();
+        } else if (!user.googleId) {
+          user.googleId = profile.id;
+          user.name = user.name || profile.displayName;
+          await user.save();
+        }
+
+        return cb(null, user);
+      } catch (err) {
+        console.log("Error in google callback =>", err);
+        return cb(err);
+      }
+    }
+  )
+);
 
 passport.serializeUser((user, cb) => {
   cb(null, user._id);
@@ -97,7 +136,7 @@ passport.deserializeUser(async (id, cb) => {
 
 // Define a route for the root URL ("/")
 // GET request: Renders the 'home' EJS template when the user visits the root URL
-app.route("/").get((req, res) => {
+app.route("/").get(isAuthenticated, (req, res) => {
   res.render("home");
 });
 
@@ -158,8 +197,27 @@ app
     }
   });
 
+app
+  .route("/auth/google")
+  .get(passport.authenticate("google", { scope: ["profile", "email"] }));
+
+app.route("/auth/google/callback").get(
+  passport.authenticate("google", {
+    successRedirect: "/secrets",
+    failureRedirect: "/login",
+  })
+);
+
 app.route("/secrets").get(isAuthenticated, (req, res) => {
   res.render("secrets");
+});
+app.route("/logout").get((req, res, next) => {
+  req.logout((err) => {
+    if (err) {
+      return next(err);
+    }
+    res.redirect("/login");
+  });
 });
 
 // Start the Express server and listen for incoming requests on the specified port

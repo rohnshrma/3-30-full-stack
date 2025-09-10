@@ -16,9 +16,13 @@ const userSchema = new mongoose.Schema({
   // Define the 'password' field
   password: {
     type: "String", // Data type is String
-    required: true, // Field is mandatory
     minLength: 6, // Minimum length of the password is 6 characters
   },
+  googleId: {
+    type: String,
+    unqiue: true,
+  },
+  name: { type: String },
 });
 
 // Define a pre-save hook that runs before a user document is saved to the database
